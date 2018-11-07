@@ -20,13 +20,16 @@
 <script src="/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/adminlte.min.js"></script>
-
+<!-- jQuery input mask -->
+<script src="/bower_components/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+<!-- iCheck plugin -->
 <script src="/plugins/icheck/icheck.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
-
 <!-- Add order-->
 <script src="/dist/js/order.js"></script>
+<!-- Mask Js-->
+<script src="/dist/js/masks.js"></script>
 <script>
     $(document).ready(function () {
         $('.sidebar-menu').tree()

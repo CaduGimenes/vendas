@@ -34,7 +34,7 @@
                 <!-- acai tab -->
                 <div class="tab-pane active" id="tabAcai">
                   <div class="box-header">
-                    <a href="/menu/acai/create" class="btn btn-success">Cadastrar Tamanho</a>
+                    <a href="/menu/size/create" class="btn btn-success">Cadastrar Tamanho</a>
                   </div>
                   <table class="table table-striped">
                     <thead>
@@ -42,20 +42,20 @@
                         <th style="width: 10px">#</th>
                         <th>Açai</th>
                         <th>Preço</th>
+                        <th style="width: 240px">&nbsp;</th>
                       </tr>
 
                     </thead>
                     <tbody>
-                      <?php $counter1=-1;  if( isset($categories) && ( is_array($categories) || $categories instanceof Traversable ) && sizeof($categories) ) foreach( $categories as $key1 => $value1 ){ $counter1++; ?>
+                      <?php $counter1=-1;  if( isset($size) && ( is_array($size) || $size instanceof Traversable ) && sizeof($size) ) foreach( $size as $key1 => $value1 ){ $counter1++; ?>
                       <tr>
-                        <td><?php echo htmlspecialchars( $value1["idcategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                        <td><?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                        <td><?php echo htmlspecialchars( $value1["cd_tamanho"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                        <td><?php echo htmlspecialchars( $value1["nm_tamanho"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                        <td>R$<?php echo formatPrice($value1["vl_tamanho"]); ?></td>
                         <td>
-                          <a href="/admin/categories/<?php echo htmlspecialchars( $value1["idcategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/products" class="btn btn-default btn-xs"><i
-                              class="fa fa-edit"></i> Produtos</a>
-                          <a href="/admin/categories/<?php echo htmlspecialchars( $value1["idcategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>
+                          <a href="/menu/size/update/<?php echo htmlspecialchars( $value1["cd_tamanho"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>
                             Editar</a>
-                          <a href="/admin/categories/<?php echo htmlspecialchars( $value1["idcategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Deseja realmente excluir este registro?')"
+                          <a href="/menu/size/delete/<?php echo htmlspecialchars( $value1["cd_tamanho"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" onclick="return confirm('Deseja realmente excluir este registro?')"
                             class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
                         </td>
                       </tr>

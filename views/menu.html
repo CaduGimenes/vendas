@@ -34,7 +34,7 @@
                 <!-- acai tab -->
                 <div class="tab-pane active" id="tabAcai">
                   <div class="box-header">
-                    <a href="/menu/acai/create" class="btn btn-success">Cadastrar Tamanho</a>
+                    <a href="/menu/size/create" class="btn btn-success">Cadastrar Tamanho</a>
                   </div>
                   <table class="table table-striped">
                     <thead>
@@ -42,20 +42,20 @@
                         <th style="width: 10px">#</th>
                         <th>Açai</th>
                         <th>Preço</th>
+                        <th style="width: 240px">&nbsp;</th>
                       </tr>
 
                     </thead>
                     <tbody>
-                      {loop="$categories"}
+                      {loop="$size"}
                       <tr>
-                        <td>{$value.idcategory}</td>
-                        <td>{$value.descategory}</td>
+                        <td>{$value.cd_tamanho}</td>
+                        <td>{$value.nm_tamanho}</td>
+                        <td>R${function="formatPrice($value.vl_tamanho)"}</td>
                         <td>
-                          <a href="/admin/categories/{$value.idcategory}/products" class="btn btn-default btn-xs"><i
-                              class="fa fa-edit"></i> Produtos</a>
-                          <a href="/admin/categories/{$value.idcategory}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>
+                          <a href="/menu/size/update/{$value.cd_tamanho}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>
                             Editar</a>
-                          <a href="/admin/categories/{$value.idcategory}/delete" onclick="return confirm('Deseja realmente excluir este registro?')"
+                          <a href="/menu/size/delete/{$value.cd_tamanho}" onclick="return confirm('Deseja realmente excluir este registro?')"
                             class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
                         </td>
                       </tr>

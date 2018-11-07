@@ -21,12 +21,12 @@ class Fruit extends Model{
 
         $nm_fruta = ucfirst($this->getnm_fruta());
 
-        $result = $sql->select("CALL sp_fruit_save(:cd_fruta, :nm_fruta)", [
+        $results = $sql->select("CALL sp_fruit_save(:cd_fruta, :nm_fruta)", [
             ':cd_fruta'=>$this->getcd_fruta(),
             ':nm_fruta'=>$nm_fruta
         ]);
 
-        $this->setData($result[0]);
+        $this->setData($results[0]);
 
     }
 
