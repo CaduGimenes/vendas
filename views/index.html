@@ -33,6 +33,7 @@
                 <div class="tab-content" id="tab-content">
                   <div class="tab-pane active" id="tab_0">
                     <input type="hidden" name="pedido[]">
+                    <!-- row 1 -->
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
@@ -40,45 +41,199 @@
                           <select class="form-control" id="size_0" required oninvalid="this.setCustomValidity('Escolha o tamanho')"
                             oninput="this.setCustomValidity('')">
                             <option value="" disabled selected>Selecione</option>
-                            <option value="1">option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
+                            <option value="Pequeno">Pequeno (R$ 7,00)</option>
+                            <option value="Médio">Médio (R$ 10,00)</option>
+                            <option value="Grande">Grande (R$ 14,00)</option>
+                            <option value="Extra Grande">Extra Grande (R$ 23,00)</option>
                           </select>
                         </div>
+                        <h2>Frutas</h1>
+                        {loop="$fruit"}
                         <div class="form-check">
-                          <h2>Frutas</h1>
                             <label>
-                              <input type="checkbox" class="minimal" value="Abacaxi" name="frutas0[]">
-                              Abacaxi
+                              <input type="checkbox" class="minimal" value="{$value.nm_fruta}" name="frutas0[]">
+                              {$value.nm_fruta}
+                            </label>
+                        </div>
+                        {/loop}
+                        
+                        <div class="form-check">
+                          <h2>Cupuaçu</h1>
+                            <label>
+                              <input type="checkbox" class="minimal" value="Inteiro" name="inteiro0[]">
+                              Inteiro
                             </label>
                         </div>
                         <div class="form-check">
                           <label>
-                            <input type="checkbox" class="minimal" value="Banana" name="frutas0[]">
-                            Banana
+                            <input type="checkbox" class="minimal" value="Meio-a-meio" name="meioAMeio0[]">
+                            Meio-a-meio
                           </label>
                         </div>
-                        <div class="form-check">
+                        <div class="input-group">
                           <label>
-                            <input type="checkbox" class="minimal" value="Manga" name="frutas0[]">
-                            Manga
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <label>
-                            <input type="checkbox" class="minimal" value="Morango" name="frutas0[]">
-                            Morango
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <label>
-                            <input type="checkbox" class="minimal" value="Kiwi" name="frutas0[]">
-                            Kiwi
+                            Bolas
+                            <input type="number" class="form-control" maxlength="2" name="bolaCupuacu0[]" min="0" max="99">
                           </label>
                         </div>
                       </div>
+                      <!-- Caldas -->
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <h2>Caldas</h1>
+                            <label>
+                              <input type="checkbox" class="minimal" value="Morango" name="caldas0[]">
+                              Morango
+                            </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Kiwi" name="caldas0[]">
+                            Kiwi
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Chocolate" name="caldas0[]">
+                            Chocolate
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Caramelo" name="caldas0[]">
+                            Caramelo
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Leit Cond." name="caldas0[]">
+                            Leit Cond.
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Doce de Leite" name="caldas0[]">
+                            Doce de Leite
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Mel" name="caldas0[]">
+                            Mel
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Groselha" name="caldas0[]">
+                            Groselha
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Marácuja" name="caldas0[]">
+                            Marácuja
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Açaí c/ guaraná" name="caldas0[]">
+                            Açaí c/ guaraná
+                          </label>
+                        </div>
+                      </div>
+                      <!-- /. Caldas -->
+                      <!-- Complementos -->
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <h2>Complementos</h2>
+                          <label>
+                            <input type="checkbox" class="minimal" value="Bolinha de Chocolate" name="complemento0[]">
+                            Bolinha de Chocolate
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Confete" name="complemento0[]">
+                            Confete
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Bis" name="complemento0[]">
+                            Bis
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Flocos de Arroz" name="complemento0[]">
+                            Flocos de Arroz
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Granola" name="complemento0[]">
+                            Granola
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Amendoin" name="complemento0[]">
+                            Amendoin
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Paçoca" name="complemento0[]">
+                            Paçoca
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Sucrilho" name="complemento0[]">
+                            Sucrilho
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Leite em pó" name="complemento0[]">
+                            Leite em pó
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Ovo Maltine" name="complemento0[]">
+                            Ovo Maltine
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Suspiro" name="complemento0[]">
+                            Suspiro
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Raspa de Choc. Branco" name="complemento0[]">
+                            Raspa de Choc. Branco
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Raspa de Choc. Preto" name="complemento0[]">
+                            Raspa de Choc. Preto
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" class="minimal" value="Canudos Waffer" name="complemento0[]">
+                            Canudos Waffer
+                          </label>
+                        </div>
+                      </div>
+                      <!-- /.Complementos -->
                     </div>
+                    <!-- /.row 1 -->
+
                   </div>
                   <!-- /.tab-pane -->
                 </div>
