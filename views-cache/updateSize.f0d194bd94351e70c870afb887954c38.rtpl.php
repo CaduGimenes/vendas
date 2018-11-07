@@ -18,7 +18,7 @@
     <section class="content">
         <div id="error"></div>
         <!-- Default box -->
-        <form id="addFruitForm" action="/menu/size/update/<?php echo htmlspecialchars( $size["cd_tamanho"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="POST">
+        <form action="/menu/size/update/<?php echo htmlspecialchars( $size["cd_tamanho"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="POST">
             <div class="box">
                 <div class="box-body">
                     <div class="row">

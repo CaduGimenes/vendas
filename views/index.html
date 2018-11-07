@@ -48,34 +48,34 @@
                           </select>
                         </div>
                         <h2>Frutas</h1>
-                        {loop="$fruit"}
-                        <div class="form-check">
+                          {loop="$fruit"}
+                          <div class="form-check">
                             <label>
                               <input type="checkbox" class="minimal" value="{$value.nm_fruta}" name="frutas0[]">
                               {$value.nm_fruta}
                             </label>
-                        </div>
-                        {/loop}
-                        
-                        <div class="form-check">
-                          <h2>Cupuaçu</h1>
+                          </div>
+                          {/loop}
+
+                          <div class="form-check">
+                            <h2>Cupuaçu</h1>
+                              <label>
+                                <input type="checkbox" class="minimal" value="Inteiro" name="inteiro0[]">
+                                Inteiro
+                              </label>
+                          </div>
+                          <div class="form-check">
                             <label>
-                              <input type="checkbox" class="minimal" value="Inteiro" name="inteiro0[]">
-                              Inteiro
+                              <input type="checkbox" class="minimal" value="Meio-a-meio" name="meioAMeio0[]">
+                              Meio-a-meio
                             </label>
-                        </div>
-                        <div class="form-check">
-                          <label>
-                            <input type="checkbox" class="minimal" value="Meio-a-meio" name="meioAMeio0[]">
-                            Meio-a-meio
-                          </label>
-                        </div>
-                        <div class="input-group">
-                          <label>
-                            Bolas
-                            <input type="number" class="form-control" maxlength="2" name="bolaCupuacu0[]" min="0" max="99">
-                          </label>
-                        </div>
+                          </div>
+                          <div class="input-group">
+                            <label>
+                              Bolas
+                              <input type="number" class="form-control" maxlength="2" name="bolaCupuacu0[]" min="0" max="99">
+                            </label>
+                          </div>
                       </div>
                       <!-- Caldas -->
                       <div class="col-md-4">

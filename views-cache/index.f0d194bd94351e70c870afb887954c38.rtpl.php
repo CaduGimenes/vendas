@@ -48,37 +48,37 @@
                           </select>
                         </div>
                         <h2>Frutas</h1>
-                        <?php $counter1=-1;  if( isset($fruit) && ( is_array($fruit) || $fruit instanceof Traversable ) && sizeof($fruit) ) foreach( $fruit as $key1 => $value1 ){ $counter1++; ?>
+                          <?php $counter1=-1;  if( isset($fruit) && ( is_array($fruit) || $fruit instanceof Traversable ) && sizeof($fruit) ) foreach( $fruit as $key1 => $value1 ){ $counter1++; ?>
 
-                        <div class="form-check">
+                          <div class="form-check">
                             <label>
                               <input type="checkbox" class="minimal" value="<?php echo htmlspecialchars( $value1["nm_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" name="frutas0[]">
                               <?php echo htmlspecialchars( $value1["nm_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>
 
                             </label>
-                        </div>
-                        <?php } ?>
+                          </div>
+                          <?php } ?>
 
-                        
-                        <div class="form-check">
-                          <h2>Cupuaçu</h1>
+
+                          <div class="form-check">
+                            <h2>Cupuaçu</h1>
+                              <label>
+                                <input type="checkbox" class="minimal" value="Inteiro" name="inteiro0[]">
+                                Inteiro
+                              </label>
+                          </div>
+                          <div class="form-check">
                             <label>
-                              <input type="checkbox" class="minimal" value="Inteiro" name="inteiro0[]">
-                              Inteiro
+                              <input type="checkbox" class="minimal" value="Meio-a-meio" name="meioAMeio0[]">
+                              Meio-a-meio
                             </label>
-                        </div>
-                        <div class="form-check">
-                          <label>
-                            <input type="checkbox" class="minimal" value="Meio-a-meio" name="meioAMeio0[]">
-                            Meio-a-meio
-                          </label>
-                        </div>
-                        <div class="input-group">
-                          <label>
-                            Bolas
-                            <input type="number" class="form-control" maxlength="2" name="bolaCupuacu0[]" min="0" max="99">
-                          </label>
-                        </div>
+                          </div>
+                          <div class="input-group">
+                            <label>
+                              Bolas
+                              <input type="number" class="form-control" maxlength="2" name="bolaCupuacu0[]" min="0" max="99">
+                            </label>
+                          </div>
                       </div>
                       <!-- Caldas -->
                       <div class="col-md-4">

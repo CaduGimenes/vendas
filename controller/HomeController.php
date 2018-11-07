@@ -3,11 +3,13 @@
 use Model\Page;
 use Model\Fruit;
 use Model\Size;
+use Model\Syrup;
 
 $app->get('/', function(){
 
     $fruit = Fruit::listAll();
     $size = Size::listAll();
+    $syrup = Syrup::listAll();
 
     $page = new Page([
         'title'=>'Pedido',
@@ -17,9 +19,9 @@ $app->get('/', function(){
 
     $page->setTpl("index", [
         'fruit'=>$fruit,
-        'size'=>$size
+        'size'=>$size,
+        'syrup'=>$syrup
     ]);
-
 
 });
 
@@ -27,6 +29,7 @@ $app->get('/menu', function(){
 
     $fruit = Fruit::listAll();
     $size = Size::listAll();
+    $syrup = Syrup::listAll();
 
     $page = new Page([
         'title'=>'Cardápio',
@@ -36,7 +39,8 @@ $app->get('/menu', function(){
 
     $page->setTpl("menu",[
         'fruit'=>$fruit,
-        'size'=>$size
+        'size'=>$size,
+        'syrup'=>$syrup
     ]);
 
 });

@@ -18,20 +18,22 @@
     <section class="content">
         <div id="error"></div>
         <!-- Default box -->
-        <form id="addFruitForm" action="/menu/size/create" method="POST">
+        <form action="/menu/size/create" method="POST">
             <div class="box">
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-4">
-                                    <div class="form-group">
-                                            <label for="newSizeName">Nome</label>
-                                            <input type="text" class="form-control" name="nm_tamanho" id="newSizeName" placeholder="Nome da tamanho" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="newSizeValue">Valor</label>
-                                            <input type="text" class="form-control" name="vl_tamanho" id="newSizeValue" placeholder="Valor" required>
-                                        </div>
+                                <div class="form-group">
+                                    <label for="newSizeName">Nome</label>
+                                    <input type="text" class="form-control" name="nm_tamanho" id="newSizeName"
+                                        placeholder="Nome da tamanho" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newSizeValue">Valor</label>
+                                    <input type="text" class="form-control" name="vl_tamanho" id="newSizeValue"
+                                        placeholder="Valor" required>
+                                </div>
                             </div>
                         </div>
                     </div>

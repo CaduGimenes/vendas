@@ -110,6 +110,37 @@
                       </tr>
                     </thead>
                     <tbody>
+                      {loop="$syrup"}
+                      <tr>
+                        <td>{$value.cd_calda}</td>
+                        <td>{$value.nm_calda}</td>
+                        <td>
+                          <a href="/menu/syrup/update/{$value.cd_calda}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>
+                            Editar</a>
+                          <a href="/menu/syrup/delete/{$value.cd_calda}" onclick="return confirm('Deseja realmente excluir este registro?')"
+                            class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                        </td>
+                      </tr>
+                      {/loop}
+                    </tbody>
+                  </table>
+                </div>
+                <!--  /.syrup tab  -->
+
+                <!-- complement tab -->
+                <div class="tab-pane" id="tabComplement">
+                  <div class="box-header">
+                    <a href="/menu/complement/create" class="btn btn-success">Cadastrar Complemento</a>
+                  </div>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th style="width: 10px">#</th>
+                        <th>Nome da Complemento</th>
+                        <th style="width: 240px">&nbsp;</th>
+                      </tr>
+                    </thead>
+                    <tbody>
                       {loop="$categories"}
                       <tr>
                         <td>{$value.idcategory}</td>
@@ -127,73 +158,40 @@
                     </tbody>
                   </table>
                 </div>
-                <!--  /.syrup tab  -->
+                <!--  /.complement tab  -->
 
-                <!-- complement tab -->
-                <div class="tab-pane" id="tabComplement">
-                    <div class="box-header">
-                      <a href="/menu/complement/create" class="btn btn-success">Cadastrar Complemento</a>
-                    </div>
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th style="width: 10px">#</th>
-                          <th>Nome da Complemento</th>
-                          <th style="width: 240px">&nbsp;</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {loop="$categories"}
-                        <tr>
-                          <td>{$value.idcategory}</td>
-                          <td>{$value.descategory}</td>
-                          <td>
-                            <a href="/admin/categories/{$value.idcategory}/products" class="btn btn-default btn-xs"><i
-                                class="fa fa-edit"></i> Produtos</a>
-                            <a href="/admin/categories/{$value.idcategory}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>
-                              Editar</a>
-                            <a href="/admin/categories/{$value.idcategory}/delete" onclick="return confirm('Deseja realmente excluir este registro?')"
-                              class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
-                          </td>
-                        </tr>
-                        {/loop}
-                      </tbody>
-                    </table>
-                  </div>
-                  <!--  /.complement tab  -->
-
-                  <!-- iceCream tab -->
+                <!-- iceCream tab -->
                 <div class="tab-pane" id="tabIceCream">
-                    <div class="box-header">
-                      <a href="/menu/icecream/create" class="btn btn-success">Cadastrar Sorvete</a>
-                    </div>
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th style="width: 10px">#</th>
-                          <th>Nome do sorvete</th>
-                          <th style="width: 240px">&nbsp;</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {loop="$categories"}
-                        <tr>
-                          <td>{$value.idcategory}</td>
-                          <td>{$value.descategory}</td>
-                          <td>
-                            <a href="/admin/categories/{$value.idcategory}/products" class="btn btn-default btn-xs"><i
-                                class="fa fa-edit"></i> Produtos</a>
-                            <a href="/admin/categories/{$value.idcategory}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>
-                              Editar</a>
-                            <a href="/admin/categories/{$value.idcategory}/delete" onclick="return confirm('Deseja realmente excluir este registro?')"
-                              class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
-                          </td>
-                        </tr>
-                        {/loop}
-                      </tbody>
-                    </table>
+                  <div class="box-header">
+                    <a href="/menu/icecream/create" class="btn btn-success">Cadastrar Sorvete</a>
                   </div>
-                  <!--  /.complement tab  -->
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th style="width: 10px">#</th>
+                        <th>Nome do sorvete</th>
+                        <th style="width: 240px">&nbsp;</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {loop="$categories"}
+                      <tr>
+                        <td>{$value.idcategory}</td>
+                        <td>{$value.descategory}</td>
+                        <td>
+                          <a href="/admin/categories/{$value.idcategory}/products" class="btn btn-default btn-xs"><i
+                              class="fa fa-edit"></i> Produtos</a>
+                          <a href="/admin/categories/{$value.idcategory}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>
+                            Editar</a>
+                          <a href="/admin/categories/{$value.idcategory}/delete" onclick="return confirm('Deseja realmente excluir este registro?')"
+                            class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                        </td>
+                      </tr>
+                      {/loop}
+                    </tbody>
+                  </table>
+                </div>
+                <!--  /.complement tab  -->
 
                 <!-- /.tab-pane -->
               </div>

@@ -10,6 +10,7 @@ require_once("dist".DIRECTORY_SEPARATOR."functions".DIRECTORY_SEPARATOR."functio
 require_once("controller".DIRECTORY_SEPARATOR."HomeController.php");
 require_once("controller".DIRECTORY_SEPARATOR."FruitController.php");
 require_once("controller".DIRECTORY_SEPARATOR."SizeController.php");
+require_once("controller".DIRECTORY_SEPARATOR."SyrupController.php");
 
 $app->run();
 

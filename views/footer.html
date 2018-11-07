@@ -2,10 +2,11 @@
     <div class="pull-right hidden-xs">
         <b>Version</b> 0.0.1
     </div>
-    <strong>Copyright &copy; <year id="year"></year> <a href="https://adminlte.io">Carlos Gimenes</a>.</strong> todos os
+    <strong>Copyright &copy; <year id="year"></year> <a href="https://adminlte.io">Carlos Gimenes</a>.</strong> todos
+    os
     direitos
     reservados.
-    
+
 </footer>
 </div>
 <!-- ./wrapper -->
