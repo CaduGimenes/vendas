@@ -41,10 +41,9 @@
                           <select class="form-control" id="size_0" required oninvalid="this.setCustomValidity('Escolha o tamanho')"
                             oninput="this.setCustomValidity('')">
                             <option value="" disabled selected>Selecione</option>
-                            <option value="Pequeno">Pequeno (R$ 7,00)</option>
-                            <option value="Médio">Médio (R$ 10,00)</option>
-                            <option value="Grande">Grande (R$ 14,00)</option>
-                            <option value="Extra Grande">Extra Grande (R$ 23,00)</option>
+                            {loop="$size"}
+                            <option value="{$value.nm_tamanho}">{$value.nm_tamanho} (R$ {function="formatPrice($value.vl_tamanho)"})</option>
+                            {/loop}
                           </select>
                         </div>
                         <h2>Frutas</h1>

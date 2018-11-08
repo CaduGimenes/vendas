@@ -6,7 +6,7 @@ use Model\Fruit;
 $app->get('/menu/fruit/create', function(){
 
     $page = new Page([
-        'title'=>'Adicionar fruta',
+        'title'=>'Adicionar Fruta',
         'order'=>'',
         'menu'=>'active'
     ]);
@@ -35,7 +35,7 @@ $app->get('/menu/fruit/update/:cd_fruta', function($cd_fruta) {
     $fruit->get((int)$cd_fruta);
 
     $page = new Page([
-        'title'=>'Alterar fruta',
+        'title'=>'Alterar Fruta',
         'order'=>'',
         'menu'=>'active'
     ]);

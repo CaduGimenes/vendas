@@ -41,10 +41,11 @@
                           <select class="form-control" id="size_0" required oninvalid="this.setCustomValidity('Escolha o tamanho')"
                             oninput="this.setCustomValidity('')">
                             <option value="" disabled selected>Selecione</option>
-                            <option value="Pequeno">Pequeno (R$ 7,00)</option>
-                            <option value="Médio">Médio (R$ 10,00)</option>
-                            <option value="Grande">Grande (R$ 14,00)</option>
-                            <option value="Extra Grande">Extra Grande (R$ 23,00)</option>
+                            <?php $counter1=-1;  if( isset($size) && ( is_array($size) || $size instanceof Traversable ) && sizeof($size) ) foreach( $size as $key1 => $value1 ){ $counter1++; ?>
+
+                            <option value="<?php echo htmlspecialchars( $value1["nm_tamanho"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["nm_tamanho"], ENT_COMPAT, 'UTF-8', FALSE ); ?> (R$ <?php echo formatPrice($value1["vl_tamanho"]); ?>)</option>
+                            <?php } ?>
+
                           </select>
                         </div>
                         <h2>Frutas</h1>
