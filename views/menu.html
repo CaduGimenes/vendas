@@ -5,7 +5,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Realizar pedido
+      Cárdapio
     </h1>
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-bookmark"></i> Home</a></li>
@@ -146,8 +146,9 @@
                         <td>{$value.cd_complemento}</td>
                         <td>{$value.nm_complemento}</td>
                         <td>
-                          
-                          <a href="/menu/complement/update/{$value.cd_complemento}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>
+
+                          <a href="/menu/complement/update/{$value.cd_complemento}" class="btn btn-primary btn-xs"><i
+                              class="fa fa-edit"></i>
                             Editar</a>
                           <a href="/menu/complement/delete/{$value.cd_complemento}" onclick="return confirm('Deseja realmente excluir este registro?')"
                             class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
@@ -173,16 +174,14 @@
                       </tr>
                     </thead>
                     <tbody>
-                      {loop="$categories"}
+                      {loop="$icecream"}
                       <tr>
-                        <td>{$value.idcategory}</td>
-                        <td>{$value.descategory}</td>
+                        <td>{$value.cd_sorvete}</td>
+                        <td>{$value.nm_sorvete}</td>
                         <td>
-                          <a href="/admin/categories/{$value.idcategory}/products" class="btn btn-default btn-xs"><i
-                              class="fa fa-edit"></i> Produtos</a>
-                          <a href="/admin/categories/{$value.idcategory}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>
+                          <a href="/menu/icecream/update/{$value.cd_sorvete}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>
                             Editar</a>
-                          <a href="/admin/categories/{$value.idcategory}/delete" onclick="return confirm('Deseja realmente excluir este registro?')"
+                          <a href="/menu/icecream/delete/{$value.cd_sorvete}" onclick="return confirm('Deseja realmente excluir este registro?')"
                             class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
                         </td>
                       </tr>
