@@ -93,6 +93,23 @@ class User extends Model {
 
     }  
 
+    public function updateAddress($cd_cliente){
+
+        $sql = new Sql();
+
+        $results = $sql->select("CALL sp_user_update_address(:cd_cliente, :nm_logradouro, :nm_bairro, :nr_casa, :nm_bloco, :nr_cep)", [
+            ':cd_cliente'=>(int)$cd_cliente,
+            ':nm_logradouro'=>$this->getnm_logradouro(),
+            ':nm_bairro'=>$this->getnm_bairro(),
+            ':nr_casa'=>$this->getnr_casa(),
+            ':nm_bloco'=>$this->getnm_bloco(),
+            ':nr_cep'=>$this->getnr_cep()
+        ]);
+
+        $this->setData($results[0]);
+
+    }
+
 }
 
 ?>

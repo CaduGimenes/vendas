@@ -13,7 +13,7 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="/"><i class="fa fa-bookmark"></i> Home</a></li>
-                    <li><a href="/menu"><i class="fa fa-bookmark"></i> Cardápio</a></li>
+                    <li><a href="/"><i class="fa fa-bookmark"></i> Pedido</a></li>
                     <li><a href="#"> Confirmar dados</a></li>
                 </ol>
             </section>
@@ -21,7 +21,7 @@
             <section class="content">
                 <div id="error"></div>
                 <!-- Default box -->
-                <form action="/register" method="POST">
+                <form action="/order/update/address" method="POST">
                     <div class="box">
                         <div class="box-body">
                             <div class="row">

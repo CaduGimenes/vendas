@@ -63,4 +63,30 @@ $app->get('/order/information', function(){
 
 });
 
+$app->get('/order/update/address', function(){
+
+    $page = new Page([
+        'title'=>'Alterar endereço',
+        'order'=>'active',
+        'menu'=>''
+    ]);
+
+    $page->setTpl('updateAddress', [
+        'user'=>$_SESSION[User::SESSION]
+    ]);
+
+});
+
+$app->post('/order/update/address', function(){
+
+    $user = new User();
+
+    $user->setData($_POST);
+
+    $user->updateAddress($_SESSION[User::SESSION]['cd_cliente']);
+
+    header("Location: /order/make");
+    exit;
+
+});
 ?>

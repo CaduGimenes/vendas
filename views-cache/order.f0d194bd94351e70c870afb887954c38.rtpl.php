@@ -7,8 +7,7 @@
     <h1>
       Realizar pedido
     </h1>
-    <h6 class="underline"><i class="fa fa-user"></i><?php echo htmlspecialchars( $user["nr_celular"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h6>
-    <button class="btn btn-success btn-xs">Dados</button>
+    <h6><i class="fa fa-user"></i> <?php echo htmlspecialchars( $user["nr_celular"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h6>
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-bookmark"></i> Home</a></li>
       <li><a href="#"><i class="fa fa-bookmark"></i> Pedido</a></li>
