@@ -19,11 +19,23 @@ class User extends Model {
 
     }
 
+    public function get($cd_cliente){
+
+        $sql = new Sql();
+
+        $results = $sql->select("SELECT * FROM tb_cliente WHERE cd_cliente = :cd_cliente", [
+            ':cd_cliente'=>$cd_cliente
+        ]);
+
+        $this->setData($results[0]);
+
+    }
+
     public static function listAll() {
 
         $sql = new Sql();
 
-        return $sql->select("SELECT * FROM tb_cliente a INNER JOIN tb_endereco b USING(cd_endereco) ORDER BY a.cd_cliente");
+        return $sql->select("SELECT * FROM tb_endereco a INNER JOIN tb_cliente b USING(cd_cliente) ORDER BY a.cd_cliente;");
 
     }
 
@@ -31,7 +43,7 @@ class User extends Model {
 
         $sql = new Sql();
 
-        $results = $sql->select("SELECT * FROM tb_cliente a INNER JOIN tb_endereco b ON a.cd_cliente = b.cd_cliente WHERE a.nr_celular = :nr_celular", [
+        $results = $sql->select("SELECT * FROM tb_cliente a INNER JOIN tb_endereco b USING(cd_cliente) WHERE nr_celular = :nr_celular", [
             ':nr_celular'=>$nr_celular
         ]);
 
@@ -51,7 +63,7 @@ class User extends Model {
 
                 $_SESSION[User::SESSION] = $user->getValues();
 
-                header("Location: /order");
+                header("Location: /order/information");
 
             }
 
@@ -67,7 +79,7 @@ class User extends Model {
 
         $sql = new Sql();
 
-        $results = $sql->select("CALL sp_user_save(:nm_cliente, :nr_celular, :nm_logradouro, :nr_casa, :nm_bairro, :nr_cep, :nm_bloco)",[
+        $results = $sql->select("CALL sp_user_save(:nm_cliente, :nr_celular, :nm_logradouro, :nm_bairro, :nr_casa, :nm_bloco, :nr_cep)",[
             ':nm_cliente'=>$this->getnm_cliente(),
             ':nr_celular'=>$this->getnr_celular(),
             ':nm_logradouro'=>$this->getnm_logradouro(),

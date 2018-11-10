@@ -7,18 +7,18 @@
     <h1>
       Realizar pedido
     </h1>
-    <h6 class="pull-rigth"><i class="fa fa-user"></i> {$user.nr_celular}</h6>
+    <h6 class="underline"><i class="fa fa-user"></i>{$user.nr_celular}</h6>
+    <button class="btn btn-success btn-xs">Dados</button>
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-bookmark"></i> Home</a></li>
       <li><a href="#"><i class="fa fa-bookmark"></i> Pedido</a></li>
     </ol>
   </section>
-
   <!-- Main content -->
   <section class="content">
     <div id="error"></div>
     <!-- Default box -->
-    <form id="orderForm">
+    <form id="orderForm" method="POST" action="/order">
       <div class="box">
         <div class="box-body">
           <div class="row">
@@ -40,7 +40,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label>Tamanho</label>
-                          <select class="form-control" id="size_0" required oninvalid="this.setCustomValidity('Escolha o tamanho')"
+                          <select class="form-control" id="size_0" name="tamanho0[]" required oninvalid="this.setCustomValidity('Escolha o tamanho')"
                             oninput="this.setCustomValidity('')">
                             <option value="" disabled selected>Selecione</option>
                             {loop="$size"}
@@ -52,7 +52,8 @@
                         <h2>Frutas</h1>
                           {loop="$fruit"}
                           <div class="form-check checkbox checkbox-primary">
-                            <input type="checkbox" id="fruitCheck{$value.cd_fruta}" class="styled" value="{$value.nm_fruta}" name="frutas0[]">
+                            <input type="checkbox" id="fruitCheck{$value.cd_fruta}" class="styled" value="{$value.nm_fruta}"
+                              name="frutas0[]">
                             <label for="fruitCheck{$value.cd_fruta}">
                               {$value.nm_fruta}
                             </label>
@@ -85,7 +86,8 @@
                         <h2>Caldas</h1>
                           {loop="$syrup"}
                           <div class="form-check checkbox checkbox-primary">
-                            <input type="checkbox" class="styled" id="syrupCheck{$value.cd_calda}" value="{$value.nm_calda}" name="caldas0[]">
+                            <input type="checkbox" class="styled" id="syrupCheck{$value.cd_calda}" value="{$value.nm_calda}"
+                              name="caldas0[]">
                             <label for="syrupCheck{$value.cd_calda}">
                               {$value.nm_calda}
                             </label>
@@ -105,12 +107,12 @@
                           </label>
                         </div>
                         {/loop}
-                  
+
                       </div>
                       <!-- /.Complementos -->
                     </div>
                     <!-- /.row 1 -->
-                  
+
                   </div>
                   <!-- /.tab-pane -->
                 </div>
@@ -123,21 +125,18 @@
           <!-- /.box-body -->
           <div class="box-footer">
             <button type="submit" class="btn btn-default pull-right">Enviar</button>
+            <a href="/menu/update/address" class="btn btn-success pull-left">Alterar endereço</a>
           </div>
-    </form>
-
-
+        </form>
     <!-- /.box-footer-->
 </div>
 <!-- /.box -->
-
 </section>
 <!-- /.content -->
 </div>
 
 <!-- jQuery 3 -->
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-
 
 <!-- /.content-wrapper -->
 <script type="text/javascript">
@@ -156,7 +155,27 @@
 
       $('#nav-tabs').append('<li id="order_' + i + '"><a href="#tab_' + i + '" class="tab_' + i +
         '" data-toggle="tab">Pedido ' + (i + 1) + '</a></li>')
-      $('#tab-content').append('<div class="tab-pane" id="tab_'+i+'"> <input type="hidden" name="pedido[]"> <div class="row"> <div class="col-md-4"> <div class="form-group"> <label>Tamanho</label> <select class="form-control" id="size_'+i+'" required oninvalid="this.setCustomValidity("Escolha o tamanho")" oninput="this.setCustomValidity("")"> <option value="" disabled selected>Selecione</option>{loop="$size"}<option value="{$value.nm_tamanho}">{$value.nm_tamanho}(R${function="formatPrice($value.vl_tamanho)"})</option>{/loop}</select> </div><h2>Frutas</h1>{loop="$fruit"}<div class="form-check checkbox checkbox-primary"> <input type="checkbox" id="fruitCheck'+i+'{$value.cd_fruta}" class="styled" value="{$value.nm_fruta}" name="frutas'+i+'[]"> <label for="fruitCheck'+i+'{$value.cd_fruta}">{$value.nm_fruta}</label> </div>{/loop}{loop="$icecream"}<div class="form-check checkbox checkbox-primary"> <h2>{$value.nm_sorvete}</h1> <input type="checkbox" id="iceCreamCheckInt'+i+'{$value.cd_sorvete}" class="styled" value="Inteiro" name="inteiro'+i+'[]"> <label for="iceCreamCheckInt'+i+'{$value.cd_sorvete}"> Inteiro </label> </div><div class="form-check checkbox checkbox-primary"> <input type="checkbox" id="iceCreamMedium'+i+'{$value.cd_sorvete}" class="styled" value="Meio-a-meio" name="meioAMeio'+i+'[]"> <label for="iceCreamMedium'+i+'{$value.cd_sorvete}"> Meio-a-meio </label> </div><div class="input-group"> <label> Bolas <input type="number" class="form-control" maxlength="2" name="bola'+i+'[]" min="0" max="99"> </label> </div>{/loop}</div><div class="col-md-4"> <h2>Caldas</h1>{loop="$syrup"}<div class="form-check checkbox checkbox-primary"> <input type="checkbox" class="styled" id="syrupCheck'+i+'{$value.cd_calda}" value="{$value.nm_calda}" name="caldas'+i+'[]"> <label for="syrupCheck'+i+'{$value.cd_calda}">{$value.nm_calda}</label> </div>{/loop}</div><div class="col-md-4"> <h2>Complementos</h2>{loop="$complement"}<div class="form-check checkbox checkbox-primary"> <input type="checkbox" id="complementCheck'+i+'{$value.cd_complemento}" class="styled" value="{$value.nm_complemento}" name="complemento'+i+'[]"> <label for="complementCheck'+i+'{$value.cd_complemento}">{$value.nm_complemento}</label> </div>{/loop}</div></div></div>')
+      $('#tab-content').append('<div class="tab-pane" id="tab_' + i +
+        '"> <input type="hidden" name="pedido[]"> <div class="row"> <div class="col-md-4"> <div class="form-group"> <label>Tamanho</label> <select class="form-control" id="size_' +
+        i + '" name="tamanho' + i +
+        '[]" required oninvalid="this.setCustomValidity("Escolha o tamanho")" oninput="this.setCustomValidity("")"> <option value="" disabled selected>Selecione</option>{loop="$size"}<option value="{$value.nm_tamanho}">{$value.nm_tamanho}(R${function="formatPrice($value.vl_tamanho)"})</option>{/loop}</select> </div><h2>Frutas</h1>{loop="$fruit"}<div class="form-check checkbox checkbox-primary"> <input type="checkbox" id="fruitCheck' +
+        i + '{$value.cd_fruta}" class="styled" value="{$value.nm_fruta}" name="frutas' + i +
+        '[]"> <label for="fruitCheck' + i +
+        '{$value.cd_fruta}">{$value.nm_fruta}</label> </div>{/loop}{loop="$icecream"}<div class="form-check checkbox checkbox-primary"> <h2>{$value.nm_sorvete}</h1> <input type="checkbox" id="iceCreamCheckInt' +
+        i + '{$value.cd_sorvete}" class="styled" value="Inteiro" name="inteiro' + i +
+        '[]"> <label for="iceCreamCheckInt' + i +
+        '{$value.cd_sorvete}"> Inteiro </label> </div><div class="form-check checkbox checkbox-primary"> <input type="checkbox" id="iceCreamMedium' +
+        i + '{$value.cd_sorvete}" class="styled" value="Meio-a-meio" name="meioAMeio' + i +
+        '[]"> <label for="iceCreamMedium' + i +
+        '{$value.cd_sorvete}"> Meio-a-meio </label> </div><div class="input-group"> <label> Bolas <input type="number" class="form-control" maxlength="2" name="bola' +
+        i +
+        '[]" min="0" max="99"> </label> </div>{/loop}</div><div class="col-md-4"> <h2>Caldas</h1>{loop="$syrup"}<div class="form-check checkbox checkbox-primary"> <input type="checkbox" class="styled" id="syrupCheck' +
+        i + '{$value.cd_calda}" value="{$value.nm_calda}" name="caldas' + i + '[]"> <label for="syrupCheck' +
+        i +
+        '{$value.cd_calda}">{$value.nm_calda}</label> </div>{/loop}</div><div class="col-md-4"> <h2>Complementos</h2>{loop="$complement"}<div class="form-check checkbox checkbox-primary"> <input type="checkbox" id="complementCheck' +
+        i + '{$value.cd_complemento}" class="styled" value="{$value.nm_complemento}" name="complemento' + i +
+        '[]"> <label for="complementCheck' + i +
+        '{$value.cd_complemento}">{$value.nm_complemento}</label> </div>{/loop}</div></div></div>')
       $('.tab_' + i).click()
     })
 

@@ -5,7 +5,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Alterar <b>Tamanho</b>
+            Alterar <b>TAMANHO</b>
         </h1>
         <ol class="breadcrumb">
             <li><a href="/"><i class="fa fa-bookmark"></i> Home</a></li>

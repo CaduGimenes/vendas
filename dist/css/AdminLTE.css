@@ -4975,3 +4975,9 @@ table.text-center th {
     white-space: normal !important;
   }
 }
+
+.underline {
+
+  text-decoration: underline;
+
+}

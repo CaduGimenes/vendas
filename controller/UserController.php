@@ -50,7 +50,7 @@ $app->post('/register', function(){
 
     $_SESSION[User::SESSION] = $user->getValues();
 
-    header("Location: /order");
+    header("Location: /order/make");
     exit;
 });
 
