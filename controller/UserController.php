@@ -2,10 +2,12 @@
 
 use Model\Page;
 use Model\User;
+use Model\Order;
 
 $app->get('/', function(){
 
     User::logout();
+    Order::unsetSession();
 
     $page = new Page([
         'title'=>'Pedido',

@@ -7,7 +7,8 @@ use Model\Model;
 
 class Order extends Model{
 
-    const SESSION_DATA = "Data";
+    const SESSION_DATA = "Order Data";
+    const SESSION_HTML = "HTML";
 
     public function save($data = array(), $clientId){
 
@@ -53,16 +54,21 @@ class Order extends Model{
                     ':vl_total'=>'',
                     ':cd_cliente'=>(int)$clientId
                 ]);
-
                 $this->setData($results[0]);
 
             }
 
+            $_SESSION[Order::SESSION_HTML] .= '<div class="nav-tabs-custom"><ul class="nav nav-tabs"><li><a href="#order'.$i.'" data-toggle="tab">Pedido '.($i + 1).'</a></li>';
 
         }
-
+        
     }
 
+    public static function unsetSession(){
+
+        $_SESSION[Order::SESSION_HTML] = null;
+
+    }
 
 }
 

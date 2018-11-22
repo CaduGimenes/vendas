@@ -9,7 +9,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="/"><i class="fa fa-bookmark"></i> Home</a></li>
-            <li><a href="/menu"><i class="fa fa-bookmark"></i> Cardápio</a></li>
+            <li><a href="/menu"> Cardápio</a></li>
             <li><a href="#"> Adicionar Tamanho</a></li>
         </ol>
     </section>

@@ -12,6 +12,7 @@ use Model\User;
 $app->get('/order/make', function(){
 
     User::verifyLogin();
+    Order::unsetSession();
 
     $fruit = Fruit::listAll();
     $size = Size::listAll();
@@ -49,7 +50,27 @@ $app->post('/order/make', function(){
 
 });
 
+$app->get('/order/confirm', function(){
+
+    User::verifyLogin();
+
+    $page = new Page([
+        'title'=>'Confirmar Pedido',
+        'order'=>'active',
+        'menu'=>''
+    ]);
+
+    $page->setTpl('orderConfirm', [
+        'user'=>$_SESSION[User::SESSION],
+        'content'=>$_SESSION[Order::SESSION_HTML]
+    ]);
+
+});
+
 $app->get('/order/information', function(){
+
+    User::verifyLogin();
+    Order::unsetSession();
 
     $page = new Page([
         'title'=>'Confirmar informações',
@@ -64,6 +85,9 @@ $app->get('/order/information', function(){
 });
 
 $app->get('/order/update/address', function(){
+
+    User::verifyLogin();
+    Order::unsetSession();
 
     $page = new Page([
         'title'=>'Alterar endereço',
@@ -89,4 +113,5 @@ $app->post('/order/update/address', function(){
     exit;
 
 });
+
 ?>

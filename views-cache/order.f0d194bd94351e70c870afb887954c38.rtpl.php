@@ -10,14 +10,14 @@
     <h6><i class="fa fa-user"></i> <?php echo htmlspecialchars( $user["nr_celular"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h6>
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-bookmark"></i> Home</a></li>
-      <li><a href="#"><i class="fa fa-bookmark"></i> Pedido</a></li>
+      <li><a href="#"> Pedido</a></li>
     </ol>
   </section>
   <!-- Main content -->
   <section class="content">
     <div id="error"></div>
     <!-- Default box -->
-    <form id="orderForm" method="POST" action="/order">
+    <form id="orderForm" method="POST" action="/order/make">
       <div class="box">
         <div class="box-body">
           <div class="row">
@@ -136,8 +136,7 @@
           </div>
           <!-- /.box-body -->
           <div class="box-footer">
-            <button type="submit" class="btn btn-default pull-right">Enviar</button>
-            <a href="/menu/update/address" class="btn btn-success pull-left">Alterar endereço</a>
+            <button type="submit" class="btn btn-success pull-right">Continuar</button>
           </div>
         </form>
     <!-- /.box-footer-->

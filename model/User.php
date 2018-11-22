@@ -55,15 +55,15 @@ class User extends Model {
 
         } else{
 
-                $data = $results[0];
+            $data = $results[0];
 
-                $user = new User();
+            $user = new User();
 
-                $user->setData($data);
+            $user->setData($data);
 
-                $_SESSION[User::SESSION] = $user->getValues();
+            $_SESSION[User::SESSION] = $user->getValues();
 
-                header("Location: /order/information");
+            header("Location: /order/information");
 
             }
 
@@ -79,17 +79,21 @@ class User extends Model {
 
         $sql = new Sql();
 
-        $results = $sql->select("CALL sp_user_save(:nm_cliente, :nr_celular, :nm_logradouro, :nm_bairro, :nr_casa, :nm_bloco, :nr_cep)",[
-            ':nm_cliente'=>$this->getnm_cliente(),
-            ':nr_celular'=>$this->getnr_celular(),
-            ':nm_logradouro'=>$this->getnm_logradouro(),
-            ':nr_casa'=>$this->getnr_casa(),
-            ':nm_bairro'=>$this->getnm_bairro(),
-            ':nr_cep'=>$this->getnr_cep(),
-            ':nm_bloco'=>$this->getnm_bloco()
-        ]);
+        if(null != $this->getnm_logradouro() || $this->getnm_logradouro() != '') {
 
-        $this->setData($results[0]);
+            $results = $sql->select("CALL sp_user_save(:nm_cliente, :nr_celular, :nm_logradouro, :nm_bairro, :nr_casa, :nm_bloco, :nr_cep)",[
+                ':nm_cliente'=>$this->getnm_cliente(),
+                ':nr_celular'=>$this->getnr_celular(),
+                ':nm_logradouro'=>$this->getnm_logradouro(),
+                ':nr_casa'=>$this->getnr_casa(),
+                ':nm_bairro'=>$this->getnm_bairro(),
+                ':nr_cep'=>$this->getnr_cep(),
+                ':nm_bloco'=>$this->getnm_bloco()
+            ]);
+    
+            $this->setData($results[0]);
+
+        }
 
     }  
 
@@ -97,6 +101,8 @@ class User extends Model {
 
         $sql = new Sql();
 
+        if(null != $this->getnm_logradouro() || $this->getnm_logradouro() != '') {
+        
         $results = $sql->select("CALL sp_user_update_address(:cd_cliente, :nm_logradouro, :nm_bairro, :nr_casa, :nm_bloco, :nr_cep)", [
             ':cd_cliente'=>(int)$cd_cliente,
             ':nm_logradouro'=>$this->getnm_logradouro(),
@@ -106,8 +112,10 @@ class User extends Model {
             ':nr_cep'=>$this->getnr_cep()
         ]);
 
-        $this->setData($results[0]);
-
+        $this->setData($results[0]);    
+        
+        }        
+    
     }
 
 }

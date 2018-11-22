@@ -1,9 +1,5 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?><!-- =============================================== -->
-<script>
-$(document).ready(function(){
-   
-})
-</script>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -13,7 +9,7 @@ $(document).ready(function(){
         </h1>
         <ol class="breadcrumb">
             <li><a href="/"><i class="fa fa-bookmark"></i> Home</a></li>
-            <li><a href="/menu"><i class="fa fa-bookmark"></i> Cardápio</a></li>
+            <li><a href="/"><i class="fa fa-bookmark"></i> Pedido</a></li>
             <li><a href="#"> Cadastro</a></li>
         </ol>
     </section>

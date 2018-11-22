@@ -22,7 +22,7 @@ class Sql {
 				Sql::PASSWORD
 			);
 
-			$this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); // <== add this line
+			$this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 			
 		} catch(PDOException $e) {
 
