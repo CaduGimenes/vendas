@@ -13,20 +13,14 @@ class Order extends Model{
 
         $number = count($data["pedido"]);
 
+        $this->checkValues($data);
+
         $sql = new Sql();
 
         $_SESSION[Order::SESSION_DATA] = $data;
 
         for ($i=0; $i < $number; $i++) { 
             
-            if(empty($data['frutas'.$i][$i]) || $data['frutas'.$i][$i] === null) $data['frutas'.$i][$i] = '';
-            if(empty($data['caldas'.$i][$i]) || $data['caldas'.$i][$i] === null) $data['caldas'.$i][$i] = '';
-            if(empty($data['complemento'.$i][$i]) || $data['complemento'.$i][$i] === null) $data['complemento'.$i][$i] = '';
-            if(empty($data['sorvete'.$i][$i]) || $data['sorvete'.$i][$i] === null) $data['sorvete'.$i][$i] = '';
-            if(empty($data['bola'.$i][$i]) || $data['bola'.$i][$i] === null) $data['bola'.$i][$i] = '';
-            if(empty($data['meioAMeio'.$i][$i]) || $data['meioAMeio'.$i][$i] === null) $data['meioAMeio'.$i][$i] = '';
-            if(empty($data['inteiro'.$i][$i]) || $data['inteiro'.$i][$i] === null) $data['inteiro'.$i][$i] = '';
-
             if(!empty($data['pedido']) && $data['pedido'] != '') {
 
                 $size = implode(',', $data['tamanho'.$i]);
@@ -59,6 +53,27 @@ class Order extends Model{
 
         }
         
+    }
+
+    private function checkValues($data = array()){
+
+        $number = count($data["pedido"]);
+
+        for ($i=0; $i < $number; $i++) { 
+
+            if(empty($data['frutas'.$i][$i]) || $data['frutas'.$i][$i] === null) $data['frutas'.$i][$i] = '';
+            if(empty($data['caldas'.$i][$i]) || $data['caldas'.$i][$i] === null) $data['caldas'.$i][$i] = '';
+            if(empty($data['complemento'.$i][$i]) || $data['complemento'.$i][$i] === null) $data['complemento'.$i][$i] = '';
+            if(empty($data['sorvete'.$i][$i]) || $data['sorvete'.$i][$i] === null) $data['sorvete'.$i][$i] = '';
+            if(empty($data['bola'.$i][$i]) || $data['bola'.$i][$i] === null) $data['bola'.$i][$i] = '';
+            if(empty($data['meioAMeio'.$i][$i]) || $data['meioAMeio'.$i][$i] === null) $data['meioAMeio'.$i][$i] = '';
+            if(empty($data['inteiro'.$i][$i]) || $data['inteiro'.$i][$i] === null) $data['inteiro'.$i][$i] = '';
+        
+        }
+
+
+        
+
     }
 
 }

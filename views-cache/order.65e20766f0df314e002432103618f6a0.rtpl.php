@@ -139,27 +139,27 @@
             <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#continue">Continuar</button>
           </div>
 
-          <div class="modal " id="continue">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
-                      <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Confirmar</h4>
-                  </div>
-                  <div class="modal-body">
-                    <p>Por favor, confirme o pedido antes de continuar.</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success">Confirmar</button>
-                  </div>
+          <div class="modal fade" id="continue">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
+                    <span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">Confirmar</h4>
                 </div>
-                <!-- /.modal-content -->
+                <div class="modal-body">
+                  <p>Por favor, confirme o pedido antes de continuar.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-success">Confirmar</button>
+                </div>
               </div>
-              <!-- /.modal-dialog -->
+              <!-- /.modal-content -->
             </div>
-        </form>
+            <!-- /.modal-dialog -->
+          </div>
+    </form>
     <!-- /.box-footer-->
 </div>
 <!-- /.box -->
