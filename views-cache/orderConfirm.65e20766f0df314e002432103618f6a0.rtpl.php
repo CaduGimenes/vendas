@@ -1,4 +1,4 @@
-<!-- =============================================== -->
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!-- =============================================== -->
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -7,7 +7,7 @@
     <h1>
       Realizar pedido
     </h1>
-    <h6><i class="fa fa-user"></i> {$user.nr_celular}</h6>
+    <h6><i class="fa fa-user"></i> <?php echo htmlspecialchars( $user["nr_celular"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h6>
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-bookmark"></i> Home</a></li>
       <li><a href="/order/make"> Pedido</a></li>
@@ -33,20 +33,24 @@
               </div>
               <!-- /.box-header -->
               <div class="box-body" id="content">
-                {$content|print}
-              </div>
-              <!-- /.box-body -->
-            </div>
+                <div class="nav-tabs-custom">
+                  <ul class="nav nav-tabs">
+                    <?php echo confirmOrder(); ?>
 
+                  </ul>
+                </div>
+                <!-- /.box-body -->
+              </div>
+
+            </div>
           </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <button type="submit" class="btn btn-default pull-right">Enviar</button>
+          </div>
+          <!-- /.box-footer-->
         </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          <button type="submit" class="btn btn-default pull-right">Enviar</button>
-        </div>
-        <!-- /.box-footer-->
-      </div>
-      <!-- /.box -->
+        <!-- /.box -->
   </section>
   <!-- /.content -->
 </div>

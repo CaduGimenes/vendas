@@ -18,8 +18,8 @@
 -- Create schema db_imp_acai
 --
 
-CREATE DATABASE IF NOT EXISTS db_imp_acai;
-USE db_imp_acai;
+CREATE DATABASE IF NOT EXISTS db_vendas;
+USE db_vendas;
 
 --
 -- Definition of table `tb_calda`
@@ -31,16 +31,6 @@ CREATE TABLE `tb_calda` (
   `nm_calda` varchar(55) NOT NULL,
   PRIMARY KEY (`cd_calda`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_calda`
---
-
-/*!40000 ALTER TABLE `tb_calda` DISABLE KEYS */;
-INSERT INTO `tb_calda` (`cd_calda`,`nm_calda`) VALUES 
- (1,'Chocolate');
-/*!40000 ALTER TABLE `tb_calda` ENABLE KEYS */;
-
 
 --
 -- Definition of table `tb_cliente`
@@ -55,17 +45,6 @@ CREATE TABLE `tb_cliente` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_cliente`
---
-
-/*!40000 ALTER TABLE `tb_cliente` DISABLE KEYS */;
-INSERT INTO `tb_cliente` (`cd_cliente`,`nm_cliente`,`nr_celular`) VALUES 
- (1,'Carlos Eduardo Gimenes Moura','(13) 9.9629-0768'),
- (2,'Carlos Eduardo Gimenes Moura','(13) 9.9629-0768');
-/*!40000 ALTER TABLE `tb_cliente` ENABLE KEYS */;
-
-
---
 -- Definition of table `tb_complemento`
 --
 
@@ -75,16 +54,6 @@ CREATE TABLE `tb_complemento` (
   `nm_complemento` varchar(55) NOT NULL,
   PRIMARY KEY (`cd_complemento`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_complemento`
---
-
-/*!40000 ALTER TABLE `tb_complemento` DISABLE KEYS */;
-INSERT INTO `tb_complemento` (`cd_complemento`,`nm_complemento`) VALUES 
- (1,'Bolinha de chocolate 1');
-/*!40000 ALTER TABLE `tb_complemento` ENABLE KEYS */;
-
 
 --
 -- Definition of table `tb_endereco`
@@ -105,16 +74,6 @@ CREATE TABLE `tb_endereco` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_endereco`
---
-
-/*!40000 ALTER TABLE `tb_endereco` DISABLE KEYS */;
-INSERT INTO `tb_endereco` (`cd_endereco`,`nm_logradouro`,`nm_bairro`,`nr_casa`,`nm_bloco`,`cd_cliente`,`nr_cep`) VALUES 
- (2,'','','',NULL,2,NULL);
-/*!40000 ALTER TABLE `tb_endereco` ENABLE KEYS */;
-
-
---
 -- Definition of table `tb_fruta`
 --
 
@@ -124,20 +83,6 @@ CREATE TABLE `tb_fruta` (
   `nm_fruta` varchar(45) NOT NULL,
   PRIMARY KEY (`cd_fruta`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_fruta`
---
-
-/*!40000 ALTER TABLE `tb_fruta` DISABLE KEYS */;
-INSERT INTO `tb_fruta` (`cd_fruta`,`nm_fruta`) VALUES 
- (1,'Abacaxi'),
- (2,'Banana'),
- (3,'Manga'),
- (4,'Morango'),
- (5,'Kiwi');
-/*!40000 ALTER TABLE `tb_fruta` ENABLE KEYS */;
-
 
 --
 -- Definition of table `tb_pedido`
@@ -162,42 +107,6 @@ CREATE TABLE `tb_pedido` (
   CONSTRAINT `tb_pedido_ibfk_1` FOREIGN KEY (`cd_cliente`) REFERENCES `tb_cliente` (`cd_cliente`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tb_pedido`
---
-
-/*!40000 ALTER TABLE `tb_pedido` DISABLE KEYS */;
-INSERT INTO `tb_pedido` (`cd_pedido`,`ds_tamanho`,`ds_fruta`,`ds_calda`,`ds_complemento`,`ds_sorvete`,`dt_data`,`cd_cliente`,`nr_bola`,`nm_inteiro`,`nm_meioameio`,`vl_total`) VALUES 
- (1,'Pequeno','Abacaxi,Banana,Manga','Chocolate','Bolinha de chocolate 1','','2018-11-11 19:10:04',11,'','0','Meio-a-meio','0.00'),
- (2,'Pequeno','','Chocolate','','','2018-11-11 19:23:55',11,'','0','','0.00'),
- (3,'Pequeno','Abacaxi','Chocolate','Bolinha de chocolate 1','','2018-11-16 21:02:47',11,'','0','','0.00'),
- (4,'Pequeno','Abacaxi','Chocolate','Bolinha de chocolate 1','','2018-11-16 21:03:54',11,'','0','','0.00'),
- (5,'Pequeno','Abacaxi,Manga','','Bolinha de chocolate 1','','2018-11-16 21:04:44',11,'','0','','0.00'),
- (6,'Pequeno','Abacaxi,Manga','','Bolinha de chocolate 1','','2018-11-16 21:06:08',11,'','0','','0.00'),
- (7,'Pequeno','Abacaxi,Banana,Manga,Morango','Chocolate','','','2018-11-16 21:20:36',1,'','0','','0.00'),
- (8,'Pequeno','Abacaxi,Banana,Manga,Morango','Chocolate','','','2018-11-16 21:21:11',1,'','0','','0.00'),
- (9,'Pequeno','Manga,Kiwi','','','','2018-11-16 21:21:11',1,'','0','','0.00'),
- (10,'Pequeno','Abacaxi,Banana,Manga,Morango','Chocolate','','','2018-11-16 21:21:20',1,'','0','','0.00'),
- (11,'Pequeno','Manga,Kiwi','','','','2018-11-16 21:21:20',1,'','0','','0.00'),
- (12,'Pequeno','Abacaxi,Manga','','','','2018-11-17 13:25:50',1,'','0','','0.00'),
- (13,'Pequeno','Abacaxi,Manga','','','','2018-11-17 13:27:09',1,'','0','','0.00'),
- (14,'Pequeno','Abacaxi','','','','2018-11-17 13:35:58',2,'','0','','0.00'),
- (15,'Pequeno','Abacaxi,Banana,Manga,Morango','','','','2018-11-17 13:51:05',2,'','0','','0.00'),
- (16,'Pequeno','Abacaxi','','','','2018-11-17 16:55:50',2,'','0','','0.00'),
- (17,'Pequeno','Abacaxi','Chocolate','','','2018-11-17 16:56:31',2,'','0','','0.00'),
- (18,'Pequeno','Abacaxi','Chocolate','','','2018-11-17 16:56:41',2,'','0','','0.00'),
- (19,'Pequeno','Abacaxi','Chocolate','','','2018-11-17 16:57:24',2,'','0','','0.00'),
- (20,'Pequeno','Abacaxi,Banana','','','','2018-11-17 16:59:29',2,'','0','','0.00'),
- (21,'Pequeno','Abacaxi,Banana,Manga,Morango','','','','2018-11-17 17:00:18',2,'','0','','0.00'),
- (22,'Pequeno','Manga,Morango','','','','2018-11-17 17:00:49',2,'','0','','0.00'),
- (23,'Pequeno','Banana','','','','2018-11-17 17:05:46',2,'','0','','0.00'),
- (24,'Pequeno','Abacaxi,','','','','2018-11-17 17:05:46',2,'','0','','0.00'),
- (25,'Pequeno','Abacaxi','','','','2018-11-17 17:06:17',2,'','0','','0.00'),
- (26,'Pequeno','Abacaxi','','','','2018-11-17 17:07:43',2,'','0','','0.00'),
- (27,'Pequeno','Banana,Manga','','','','2018-11-17 17:08:12',2,'','0','','0.00'),
- (28,'Pequeno','Abacaxi,Banana,Manga','','','','2018-11-17 17:10:00',2,'','0','','0.00');
-/*!40000 ALTER TABLE `tb_pedido` ENABLE KEYS */;
-
 
 --
 -- Definition of table `tb_sorvete`
@@ -211,16 +120,6 @@ CREATE TABLE `tb_sorvete` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_sorvete`
---
-
-/*!40000 ALTER TABLE `tb_sorvete` DISABLE KEYS */;
-INSERT INTO `tb_sorvete` (`cd_sorvete`,`nm_sorvete`) VALUES 
- (2,'CupuaÃ§u');
-/*!40000 ALTER TABLE `tb_sorvete` ENABLE KEYS */;
-
-
---
 -- Definition of table `tb_tamanho`
 --
 
@@ -231,16 +130,6 @@ CREATE TABLE `tb_tamanho` (
   `vl_tamanho` decimal(9,2) NOT NULL,
   PRIMARY KEY (`cd_tamanho`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_tamanho`
---
-
-/*!40000 ALTER TABLE `tb_tamanho` DISABLE KEYS */;
-INSERT INTO `tb_tamanho` (`cd_tamanho`,`nm_tamanho`,`vl_tamanho`) VALUES 
- (1,'Pequeno','7.00');
-/*!40000 ALTER TABLE `tb_tamanho` ENABLE KEYS */;
-
 
 --
 -- Definition of procedure `sp_complement_save`
