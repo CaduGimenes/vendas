@@ -13,14 +13,13 @@
     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="/plugins/icheck/skins/all.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/AdminLTE.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/dist/css/skins/skin-purple.css">
+    <!-- AwesomeCheck plugin-->
     <link rel="stylesheet" href="/plugins/awesomeCheck/awesome-bootstrap-checkbox.css">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

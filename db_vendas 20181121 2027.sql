@@ -95,29 +95,13 @@ CREATE TABLE `tb_pedido` (
   `ds_fruta` char(100) DEFAULT NULL,
   `ds_calda` char(100) DEFAULT NULL,
   `ds_complemento` char(100) DEFAULT NULL,
-  `ds_sorvete` char(100) DEFAULT NULL,
   `dt_data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `cd_cliente` int(11) NOT NULL,
-  `nr_bola` varchar(30) DEFAULT NULL,
-  `nm_inteiro` varchar(150) DEFAULT NULL,
-  `nm_meioameio` varchar(200) DEFAULT NULL,
   `vl_total` decimal(9,2) DEFAULT NULL,
   PRIMARY KEY (`cd_pedido`),
   KEY `cd_cliente` (`cd_cliente`),
   CONSTRAINT `tb_pedido_ibfk_1` FOREIGN KEY (`cd_cliente`) REFERENCES `tb_cliente` (`cd_cliente`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
-
-
---
--- Definition of table `tb_sorvete`
---
-
-DROP TABLE IF EXISTS `tb_sorvete`;
-CREATE TABLE `tb_sorvete` (
-  `cd_sorvete` int(11) NOT NULL AUTO_INCREMENT,
-  `nm_sorvete` varchar(45) NOT NULL,
-  PRIMARY KEY (`cd_sorvete`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Definition of table `tb_tamanho`
@@ -200,40 +184,6 @@ END $$
 DELIMITER ;
 
 --
--- Definition of procedure `sp_icecream_save`
---
-
-DROP PROCEDURE IF EXISTS `sp_icecream_save`;
-
-DELIMITER $$
-
-/*!50003 SET @TEMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_icecream_save`(
-	pcd_sorvete INT(11),
-    pnm_sorvete CHAR(35)
-    )
-BEGIN
-
-	IF pcd_sorvete > 0 THEN
-    
-		UPDATE tb_sorvete SET nm_sorvete = pnm_sorvete WHERE cd_sorvete = pcd_sorvete;
-        
-	ELSE 
-    
-	INSERT INTO tb_sorvete(nm_sorvete) VALUES(pnm_sorvete);
-    
-    SET pcd_sorvete = LAST_INSERT_ID();
-    
-    END IF;
-    
-    SELECT * from tb_sorvete WHERE cd_sorvete = pcd_sorvete;
-
-END $$
-/*!50003 SET SESSION SQL_MODE=@TEMP_SQL_MODE */  $$
-
-DELIMITER ;
-
---
 -- Definition of procedure `sp_order_save`
 --
 
@@ -247,10 +197,6 @@ pds_tamanho VARCHAR(40),
 pds_fruta VARCHAR(100), 
 pds_calda VARCHAR(100), 
 pds_complemento VARCHAR(100), 
-pds_sorvete VARCHAR(100),
-pnr_bola VARCHAR(30) ,
-pnm_inteiro INT(150),
-pnm_meioameio VARCHAR(200),
 pvl_total DECIMAL(9,2),
 pcd_cliente INT
 )
@@ -260,8 +206,8 @@ BEGIN
     
     SET pdt_data = NOW();
     
-    INSERT INTO tb_pedido(ds_tamanho, ds_fruta, ds_calda, ds_complemento, ds_sorvete, nr_bola, nm_inteiro, nm_meioameio, vl_total, dt_data, cd_cliente) 
-    VALUES(pds_tamanho, pds_fruta, pds_calda, pds_complemento, pds_sorvete, pnr_bola, pnm_inteiro, pnm_meioameio, pvl_total, pdt_data, pcd_cliente);
+    INSERT INTO tb_pedido(ds_tamanho, ds_fruta, ds_calda, ds_complemento, vl_total, dt_data, cd_cliente) 
+    VALUES(pds_tamanho, pds_fruta, pds_calda, pds_complemento, pvl_total, pdt_data, pcd_cliente);
     
     SELECT * FROM tb_pedido a INNER JOIN tb_cliente b USING(cd_cliente) WHERE a.cd_pedido = LAST_INSERT_ID();
     

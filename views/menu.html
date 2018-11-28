@@ -28,7 +28,6 @@
                 <li><a href="#tabFruit" data-toggle="tab">Frutas</a></li>
                 <li><a href="#tabSyrup" data-toggle="tab">Caldas</a></li>
                 <li><a href="#tabComplement" data-toggle="tab">Complementos</a></li>
-                <li><a href="#tabIceCream" data-toggle="tab">Sorvetes</a></li>
               </ul>
               <div class="tab-content" id="tab-content">
                 <!-- acai tab -->
@@ -159,38 +158,6 @@
                   </table>
                 </div>
                 <!--  /.complement tab  -->
-
-                <!-- iceCream tab -->
-                <div class="tab-pane" id="tabIceCream">
-                  <div class="box-header">
-                    <a href="/menu/icecream/create" class="btn btn-success">Cadastrar Sorvete</a>
-                  </div>
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th style="width: 10px">#</th>
-                        <th>Nome do sorvete</th>
-                        <th style="width: 240px">&nbsp;</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {loop="$icecream"}
-                      <tr>
-                        <td>{$value.cd_sorvete}</td>
-                        <td>{$value.nm_sorvete}</td>
-                        <td>
-                          <a href="/menu/icecream/update/{$value.cd_sorvete}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>
-                            Editar</a>
-                          <a href="/menu/icecream/delete/{$value.cd_sorvete}" onclick="return confirm('Deseja realmente excluir este registro?')"
-                            class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
-                        </td>
-                      </tr>
-                      {/loop}
-                    </tbody>
-                  </table>
-                </div>
-                <!--  /.complement tab  -->
-
                 <!-- /.tab-pane -->
               </div>
               <!-- /.tab-content -->

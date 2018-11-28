@@ -14,7 +14,6 @@ require_once("controller".DIRECTORY_SEPARATOR."FruitController.php");
 require_once("controller".DIRECTORY_SEPARATOR."SizeController.php");
 require_once("controller".DIRECTORY_SEPARATOR."SyrupController.php");
 require_once("controller".DIRECTORY_SEPARATOR."ComplementController.php");
-require_once("controller".DIRECTORY_SEPARATOR."IceCreamController.php");
 require_once("controller".DIRECTORY_SEPARATOR."UserController.php");
 
 $app->run();

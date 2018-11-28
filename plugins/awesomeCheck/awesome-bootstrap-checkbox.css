@@ -98,8 +98,8 @@
 
 .checkbox-primary input[type="checkbox"]:checked+label::before,
 .checkbox-primary input[type="radio"]:checked+label::before {
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #605ca8;
+  border-color: #4c4986;
 }
 
 .checkbox-primary input[type="checkbox"]:checked+label::after,
@@ -109,8 +109,8 @@
 
 .checkbox-danger input[type="checkbox"]:checked+label::before,
 .checkbox-danger input[type="radio"]:checked+label::before {
-  background-color: #d9534f;
-  border-color: #d9534f;
+  background-color: #605ca8;
+  border-color: #605ca8;
 }
 
 .checkbox-danger input[type="checkbox"]:checked+label::after,
@@ -120,8 +120,8 @@
 
 .checkbox-info input[type="checkbox"]:checked+label::before,
 .checkbox-info input[type="radio"]:checked+label::before {
-  background-color: #5bc0de;
-  border-color: #5bc0de;
+  background-color: #605ca8;
+  border-color: #605ca8;
 }
 
 .checkbox-info input[type="checkbox"]:checked+label::after,
@@ -131,8 +131,8 @@
 
 .checkbox-warning input[type="checkbox"]:checked+label::before,
 .checkbox-warning input[type="radio"]:checked+label::before {
-  background-color: #f0ad4e;
-  border-color: #f0ad4e;
+  background-color: #605ca8;
+  border-color: #605ca8;
 }
 
 .checkbox-warning input[type="checkbox"]:checked+label::after,
@@ -142,8 +142,8 @@
 
 .checkbox-success input[type="checkbox"]:checked+label::before,
 .checkbox-success input[type="radio"]:checked+label::before {
-  background-color: #5cb85c;
-  border-color: #5cb85c;
+  background-color: #605ca8;
+  border-color: #605ca8;
 }
 
 .checkbox-success input[type="checkbox"]:checked+label::after,
@@ -153,8 +153,8 @@
 
 .checkbox-primary input[type="checkbox"]:indeterminate+label::before,
 .checkbox-primary input[type="radio"]:indeterminate+label::before {
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #605ca8;
+  border-color: #4c4986;
 }
 
 .checkbox-primary input[type="checkbox"]:indeterminate+label::after,
@@ -164,8 +164,8 @@
 
 .checkbox-danger input[type="checkbox"]:indeterminate+label::before,
 .checkbox-danger input[type="radio"]:indeterminate+label::before {
-  background-color: #d9534f;
-  border-color: #d9534f;
+  background-color: #605ca8;
+  border-color: #605ca8;
 }
 
 .checkbox-danger input[type="checkbox"]:indeterminate+label::after,
@@ -175,8 +175,8 @@
 
 .checkbox-info input[type="checkbox"]:indeterminate+label::before,
 .checkbox-info input[type="radio"]:indeterminate+label::before {
-  background-color: #5bc0de;
-  border-color: #5bc0de;
+  background-color: #605ca8;
+  border-color: #605ca8;
 }
 
 .checkbox-info input[type="checkbox"]:indeterminate+label::after,
@@ -186,8 +186,8 @@
 
 .checkbox-warning input[type="checkbox"]:indeterminate+label::before,
 .checkbox-warning input[type="radio"]:indeterminate+label::before {
-  background-color: #f0ad4e;
-  border-color: #f0ad4e;
+  background-color: #605ca8;
+  border-color: #605ca8;
 }
 
 .checkbox-warning input[type="checkbox"]:indeterminate+label::after,
@@ -197,8 +197,8 @@
 
 .checkbox-success input[type="checkbox"]:indeterminate+label::before,
 .checkbox-success input[type="radio"]:indeterminate+label::before {
-  background-color: #5cb85c;
-  border-color: #5cb85c;
+  background-color: #605ca8;
+  border-color: #605ca8;
 }
 
 .checkbox-success input[type="checkbox"]:indeterminate+label::after,
@@ -290,63 +290,63 @@
 }
 
 .radio-primary input[type="radio"]+label::after {
-  background-color: #337ab7;
+  background-color: #605ca8;
 }
 
 .radio-primary input[type="radio"]:checked+label::before {
-  border-color: #337ab7;
+  border-color: #605ca8;
 }
 
 .radio-primary input[type="radio"]:checked+label::after {
-  background-color: #337ab7;
+  background-color: #605ca8;
 }
 
 .radio-danger input[type="radio"]+label::after {
-  background-color: #d9534f;
+  background-color: #605ca8;
 }
 
 .radio-danger input[type="radio"]:checked+label::before {
-  border-color: #d9534f;
+  border-color: #605ca8;
 }
 
 .radio-danger input[type="radio"]:checked+label::after {
-  background-color: #d9534f;
+  background-color: #605ca8;
 }
 
 .radio-info input[type="radio"]+label::after {
-  background-color: #5bc0de;
+  background-color: #605ca8;
 }
 
 .radio-info input[type="radio"]:checked+label::before {
-  border-color: #5bc0de;
+  border-color: #605ca8;
 }
 
 .radio-info input[type="radio"]:checked+label::after {
-  background-color: #5bc0de;
+  background-color: #605ca8;
 }
 
 .radio-warning input[type="radio"]+label::after {
-  background-color: #f0ad4e;
+  background-color: #605ca8;
 }
 
 .radio-warning input[type="radio"]:checked+label::before {
-  border-color: #f0ad4e;
+  border-color: #605ca8;
 }
 
 .radio-warning input[type="radio"]:checked+label::after {
-  background-color: #f0ad4e;
+  background-color: #605ca8;
 }
 
 .radio-success input[type="radio"]+label::after {
-  background-color: #5cb85c;
+  background-color: #605ca8;
 }
 
 .radio-success input[type="radio"]:checked+label::before {
-  border-color: #5cb85c;
+  border-color: #605ca8;
 }
 
 .radio-success input[type="radio"]:checked+label::after {
-  background-color: #5cb85c;
+  background-color: #605ca8;
 }
 
 input[type="checkbox"].styled:checked+label:after,

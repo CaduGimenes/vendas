@@ -50,57 +50,34 @@
 
                           </select>
                         </div>
-                        <h2>Frutas</h1>
-                          <?php $counter1=-1;  if( isset($fruit) && ( is_array($fruit) || $fruit instanceof Traversable ) && sizeof($fruit) ) foreach( $fruit as $key1 => $value1 ){ $counter1++; ?>
+                        <h2>Frutas</h2>
+                        <?php $counter1=-1;  if( isset($fruit) && ( is_array($fruit) || $fruit instanceof Traversable ) && sizeof($fruit) ) foreach( $fruit as $key1 => $value1 ){ $counter1++; ?>
 
-                          <div class="form-check checkbox checkbox-primary">
-                            <input type="checkbox" id="fruitCheck<?php echo htmlspecialchars( $value1["cd_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="styled" value="<?php echo htmlspecialchars( $value1["nm_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
-                              name="frutas0[]">
-                            <label for="fruitCheck<?php echo htmlspecialchars( $value1["cd_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
-                              <?php echo htmlspecialchars( $value1["nm_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>
+                        <div class="form-check checkbox checkbox-primary">
+                          <input type="checkbox" id="fruitCheck<?php echo htmlspecialchars( $value1["cd_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="styled" value="<?php echo htmlspecialchars( $value1["nm_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
+                            name="frutas0[]">
+                          <label for="fruitCheck<?php echo htmlspecialchars( $value1["cd_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                            <?php echo htmlspecialchars( $value1["nm_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>
 
-                            </label>
-                          </div>
-                          <?php } ?>
-
-                          <?php $counter1=-1;  if( isset($icecream) && ( is_array($icecream) || $icecream instanceof Traversable ) && sizeof($icecream) ) foreach( $icecream as $key1 => $value1 ){ $counter1++; ?>
-
-                          <div class="form-check checkbox checkbox-primary">
-                            <h2><?php echo htmlspecialchars( $value1["nm_sorvete"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h1>
-                              <input type="checkbox" id="iceCreamCheckInt" class="styled" value="Inteiro" name="inteiro0[]">
-                              <label for="iceCreamCheckInt">
-                                Inteiro
-                              </label>
-                          </div>
-                          <div class="form-check checkbox checkbox-primary">
-                            <input type="checkbox" id="iceCreamMedium" class="styled" value="Meio-a-meio" name="meioAMeio0[]">
-                            <label for="iceCreamMedium">
-                              Meio-a-meio
-                            </label>
-                          </div>
-                          <div class="input-group">
-                            <label>
-                              Bolas
-                              <input type="number" class="form-control" maxlength="2" name="bola0[]" min="0" max="99">
-                            </label>
-                          </div>
-                          <?php } ?>
+                          </label>
+                        </div>
+                        <?php } ?>
 
                       </div>
                       <!-- Caldas -->
                       <div class="col-md-4">
-                        <h2>Caldas</h1>
-                          <?php $counter1=-1;  if( isset($syrup) && ( is_array($syrup) || $syrup instanceof Traversable ) && sizeof($syrup) ) foreach( $syrup as $key1 => $value1 ){ $counter1++; ?>
+                        <h2>Caldas</h2>
+                        <?php $counter1=-1;  if( isset($syrup) && ( is_array($syrup) || $syrup instanceof Traversable ) && sizeof($syrup) ) foreach( $syrup as $key1 => $value1 ){ $counter1++; ?>
 
-                          <div class="form-check checkbox checkbox-primary">
-                            <input type="checkbox" class="styled" id="syrupCheck<?php echo htmlspecialchars( $value1["cd_calda"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" value="<?php echo htmlspecialchars( $value1["nm_calda"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
-                              name="caldas0[]">
-                            <label for="syrupCheck<?php echo htmlspecialchars( $value1["cd_calda"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
-                              <?php echo htmlspecialchars( $value1["nm_calda"], ENT_COMPAT, 'UTF-8', FALSE ); ?>
+                        <div class="form-check checkbox checkbox-primary">
+                          <input type="checkbox" class="styled" id="syrupCheck<?php echo htmlspecialchars( $value1["cd_calda"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" value="<?php echo htmlspecialchars( $value1["nm_calda"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
+                            name="caldas0[]">
+                          <label for="syrupCheck<?php echo htmlspecialchars( $value1["cd_calda"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                            <?php echo htmlspecialchars( $value1["nm_calda"], ENT_COMPAT, 'UTF-8', FALSE ); ?>
 
-                            </label>
-                          </div>
-                          <?php } ?>
+                          </label>
+                        </div>
+                        <?php } ?>
 
                       </div>
                       <!-- /. Caldas -->
@@ -190,18 +167,10 @@
       $('#tab-content').append('<div class="tab-pane" id="tab_' + i +
         '"> <input type="hidden" name="pedido[]"> <div class="row"> <div class="col-md-4"> <div class="form-group"> <label>Tamanho</label> <select class="form-control" id="size_' +
         i + '" name="tamanho' + i +
-        '[]" required oninvalid="this.setCustomValidity("Escolha o tamanho")" oninput="this.setCustomValidity("")"> <option value="" disabled selected>Selecione</option><?php $counter1=-1;  if( isset($size) && ( is_array($size) || $size instanceof Traversable ) && sizeof($size) ) foreach( $size as $key1 => $value1 ){ $counter1++; ?><option value="<?php echo htmlspecialchars( $value1["nm_tamanho"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["nm_tamanho"], ENT_COMPAT, 'UTF-8', FALSE ); ?>(R$<?php echo formatPrice($value1["vl_tamanho"]); ?>)</option><?php } ?></select> </div><h2>Frutas</h1><?php $counter1=-1;  if( isset($fruit) && ( is_array($fruit) || $fruit instanceof Traversable ) && sizeof($fruit) ) foreach( $fruit as $key1 => $value1 ){ $counter1++; ?><div class="form-check checkbox checkbox-primary"> <input type="checkbox" id="fruitCheck' +
+        '[]" required oninvalid="this.setCustomValidity("Escolha o tamanho")" oninput="this.setCustomValidity("")"> <option value="" disabled selected>Selecione</option><?php $counter1=-1;  if( isset($size) && ( is_array($size) || $size instanceof Traversable ) && sizeof($size) ) foreach( $size as $key1 => $value1 ){ $counter1++; ?><option value="<?php echo htmlspecialchars( $value1["nm_tamanho"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["nm_tamanho"], ENT_COMPAT, 'UTF-8', FALSE ); ?>(R$<?php echo formatPrice($value1["vl_tamanho"]); ?>)</option><?php } ?></select> </div><h2>Frutas</h2><?php $counter1=-1;  if( isset($fruit) && ( is_array($fruit) || $fruit instanceof Traversable ) && sizeof($fruit) ) foreach( $fruit as $key1 => $value1 ){ $counter1++; ?><div class="form-check checkbox checkbox-primary"> <input type="checkbox" id="fruitCheck' +
         i + '<?php echo htmlspecialchars( $value1["cd_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="styled" value="<?php echo htmlspecialchars( $value1["nm_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" name="frutas' + i +
         '[]"> <label for="fruitCheck' + i +
-        '<?php echo htmlspecialchars( $value1["cd_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["nm_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?></label> </div><?php } ?><?php $counter1=-1;  if( isset($icecream) && ( is_array($icecream) || $icecream instanceof Traversable ) && sizeof($icecream) ) foreach( $icecream as $key1 => $value1 ){ $counter1++; ?><div class="form-check checkbox checkbox-primary"> <h2><?php echo htmlspecialchars( $value1["nm_sorvete"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h1> <input type="checkbox" id="iceCreamCheckInt' +
-        i + '<?php echo htmlspecialchars( $value1["cd_sorvete"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="styled" value="Inteiro" name="inteiro' + i +
-        '[]"> <label for="iceCreamCheckInt' + i +
-        '<?php echo htmlspecialchars( $value1["cd_sorvete"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"> Inteiro </label> </div><div class="form-check checkbox checkbox-primary"> <input type="checkbox" id="iceCreamMedium' +
-        i + '<?php echo htmlspecialchars( $value1["cd_sorvete"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="styled" value="Meio-a-meio" name="meioAMeio' + i +
-        '[]"> <label for="iceCreamMedium' + i +
-        '<?php echo htmlspecialchars( $value1["cd_sorvete"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"> Meio-a-meio </label> </div><div class="input-group"> <label> Bolas <input type="number" class="form-control" maxlength="2" name="bola' +
-        i +
-        '[]" min="0" max="99"> </label> </div><?php } ?></div><div class="col-md-4"> <h2>Caldas</h1><?php $counter1=-1;  if( isset($syrup) && ( is_array($syrup) || $syrup instanceof Traversable ) && sizeof($syrup) ) foreach( $syrup as $key1 => $value1 ){ $counter1++; ?><div class="form-check checkbox checkbox-primary"> <input type="checkbox" class="styled" id="syrupCheck' +
+        '<?php echo htmlspecialchars( $value1["cd_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["nm_fruta"], ENT_COMPAT, 'UTF-8', FALSE ); ?></label></div><?php } ?></div><div class="col-md-4"> <h2>Caldas</h2><?php $counter1=-1;  if( isset($syrup) && ( is_array($syrup) || $syrup instanceof Traversable ) && sizeof($syrup) ) foreach( $syrup as $key1 => $value1 ){ $counter1++; ?><div class="form-check checkbox checkbox-primary"> <input type="checkbox" class="styled" id="syrupCheck' +
         i + '<?php echo htmlspecialchars( $value1["cd_calda"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" value="<?php echo htmlspecialchars( $value1["nm_calda"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" name="caldas' + i + '[]"> <label for="syrupCheck' +
         i +
         '<?php echo htmlspecialchars( $value1["cd_calda"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["nm_calda"], ENT_COMPAT, 'UTF-8', FALSE ); ?></label> </div><?php } ?></div><div class="col-md-4"> <h2>Complementos</h2><?php $counter1=-1;  if( isset($complement) && ( is_array($complement) || $complement instanceof Traversable ) && sizeof($complement) ) foreach( $complement as $key1 => $value1 ){ $counter1++; ?><div class="form-check checkbox checkbox-primary"> <input type="checkbox" id="complementCheck' +

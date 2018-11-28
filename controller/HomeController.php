@@ -5,7 +5,6 @@ use Model\Fruit;
 use Model\Size;
 use Model\Syrup;
 use Model\Complement;
-use Model\IceCream;
 
 $app->get('/menu', function(){
 
@@ -13,7 +12,6 @@ $app->get('/menu', function(){
     $size = Size::listAll();
     $syrup = Syrup::listAll();
     $complement = Complement::listAll();
-    $iceCream = IceCream::listAll();
 
     $page = new Page([
         'title'=>'Cardápio',
@@ -26,7 +24,6 @@ $app->get('/menu', function(){
         'size'=>$size,
         'syrup'=>$syrup,
         'complement'=>$complement,
-        'icecream'=>$iceCream
     ]);
 
 });
