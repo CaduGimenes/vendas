@@ -1,14 +1,14 @@
 <?php
 
-use Model\Page;
+use Model\Complement;
 use Model\Fruit;
+use Model\Order;
+use Model\Page;
 use Model\Size;
 use Model\Syrup;
-use Model\Complement;
-use Model\Order;
 use Model\User;
 
-$app->get('/order/make', function(){
+$app->get('/order/make', function () {
 
     User::verifyLogin();
 
@@ -18,22 +18,22 @@ $app->get('/order/make', function(){
     $complement = Complement::listAll();
 
     $page = new Page([
-        'title'=>'Pedido',
-        'order'=>'active',
-        'menu'=>''
+        'title' => 'Pedido',
+        'order' => 'active',
+        'menu' => '',
     ]);
 
     $page->setTpl("order", [
-        'fruit'=>$fruit,
-        'size'=>$size,
-        'syrup'=>$syrup,
-        'complement'=>$complement,
-        'user'=>$_SESSION[User::SESSION]
+        'fruit' => $fruit,
+        'size' => $size,
+        'syrup' => $syrup,
+        'complement' => $complement,
+        'user' => $_SESSION[User::SESSION],
     ]);
 
 });
 
-$app->post('/order/make', function(){
+$app->post('/order/make', function () {
 
     $id = $_SESSION[User::SESSION]['cd_cliente'];
 
@@ -46,55 +46,63 @@ $app->post('/order/make', function(){
 
 });
 
-$app->get('/order/confirm', function(){
+$app->get('/order/confirm', function () {
+
+    echo "<pre>";
+    print_r($_SESSION[Order::SESSION_DATA]);
+    echo "</pre>";
 
     User::verifyLogin();
 
+    $order = new Order();
+
+    $order->getTotal();
+
     $page = new Page([
-        'title'=>'Confirmar Pedido',
-        'order'=>'active',
-        'menu'=>''
+        'title' => 'Confirmar Pedido',
+        'order' => 'active',
+        'menu' => '',
     ]);
 
     $page->setTpl('orderConfirm', [
-        'user'=>$_SESSION[User::SESSION]
+        'user' => $_SESSION[User::SESSION],
     ]);
 
 });
 
-$app->get('/order/information', function(){
+$app->get('/order/information', function () {
 
     User::verifyLogin();
 
     $page = new Page([
-        'title'=>'Confirmar informações',
-        'order'=>'active',
-        'menu'=>''
+        'title' => 'Confirmar informações',
+        'order' => 'active',
+        'menu' => '',
     ]);
 
-    $page->setTpl('userInformation',[
-        'user'=>$_SESSION[User::SESSION]
+    $page->setTpl('userInformation', [
+        'user' => $_SESSION[User::SESSION],
     ]);
 
 });
 
-$app->get('/order/update/address', function(){
+$app->get('/order/update/address', function () {
 
     User::verifyLogin();
 
     $page = new Page([
-        'title'=>'Alterar endereço',
-        'order'=>'active',
-        'menu'=>''
+        'title' => 'Alterar endereço',
+        'order' => 'active',
+        'menu' => '',
     ]);
 
     $page->setTpl('updateAddress', [
-        'user'=>$_SESSION[User::SESSION]
+        'user' => $_SESSION[User::SESSION],
     ]);
 
 });
 
-$app->post('/order/update/address', function(){
+$app->post('/order/update/address', function () {
 
     $user = new User();
 
@@ -106,5 +114,3 @@ $app->post('/order/update/address', function(){
     exit;
 
 });
-
-?>

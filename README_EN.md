@@ -25,7 +25,7 @@ a solution to the small entrepreneurs of the açaí branch (*traditional Brazili
 
 ### Include the librarys
 
-#### Bower
+### Bower
 Use the following command to download all dependencies:
 
 ```node

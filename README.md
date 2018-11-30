@@ -21,7 +21,7 @@
 
 ### Inclua ás bibliotecas
 
-#### Bower
+### Bower
 Use o seguinte comando fazer o download de todas as dependências:
 
 ```node
