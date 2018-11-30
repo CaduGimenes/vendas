@@ -5,9 +5,13 @@
 
 [English](https://github.com/CaduGimenes/vendas/blob/master/README_EN.md) / [Portuguese](https://github.com/CaduGimenes/vendas/blob/master/README.md)
 
-**Vendas** é um sistema **Open Source** de vendas de açaí. O objetivo do projeto é disponibilizar de maneira, *simples, fácil e rápida,* uma solução aos pequenos empreendedores do ramo do açaí (*tradicional fruta brasileira*), que facilite a maneira de gerenciar seus pedidos feitos por delivery. 
 
-### O sistema:
+**Vendas** is an **Open Source** sales system for açaí. The project is made available in a *simple, quick and easy way*,
+a solution to the small entrepreneurs of the açaí branch (*traditional Brazilian fruit*), which will facilitate the way to manage your orders made by delivery.
+
+
+
+### The system:
 
 ![](https://lh3.googleusercontent.com/5QAf-RKb17Mbdl5K9xq-BvO1H_9LQb3q3K6up_QhN_6vTMgnuDdbUe694P-aIY6rNndsopbA1_6r)
 
@@ -15,41 +19,41 @@
 
 ![](https://lh3.googleusercontent.com/g9qtqOYgOvAnXynx5LcyAABX0EmyzEr3Y7HbA3hBImFzi-DuZQaoKauIJ4n4aNUDroseeUL7uR2V)
 
-> Áreas de: Informar cliente, confirmação de dados e realização do pedido.
+> Tabs for: Inform customer, confirm data and make the request.
 
-# Uso básico
+# Basic usage
 
-### Inclua ás bibliotecas
+### Include the librarys
 
 #### Bower
-Use o seguinte comando fazer o download de todas as dependências:
+Use the following command to download all dependencies:
 
 ```node
 $ bower install
 ```
 ### Composer
 
-Use o seguinte comando para fazer o download de todos os módulos PHP:
+Use the following command to download all PHP modules:
 
 ```bash
 $ composer install
 ```
 
-Em caso de problemas tente:
+In case of problems try:
 
 ```bash
 $ composer update
 ```
 
-#### Requerimentos
+#### Requiriments
 
-Para o funcionamento correto do sistema é necessário possuir os seguintes itens:
+For correct operation of the system it is necessary to have the following items:
 
-- PHP 7.2.* ou superior;
+- PHP 7.2.* or above;
 - [Composer](https://getcomposer.org);
 - [NodeJS](https://nodejs.org/en/);
 - [Bower](https://bower.io/).
 
 ### Licença
 - [MIT](https://github.com/CaduGimenes/vendas/blob/master/LICENSE);
-- Template usado no projeto [AdminLTE](http://adminlte.io) por [Almsaeed Studio](http://adminlte.io).
+- Template used in the project [AdminLTE](http://adminlte.io) by [Almsaeed Studio](http://adminlte.io).

@@ -1,4 +1,4 @@
-<!-- =============================================== -->
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!-- =============================================== -->
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -26,46 +26,46 @@
                                     <div class="form-group">
                                         <label for="nm_cliente">Nome</label>
                                         <input type="text" class="form-control" name="nm_cliente" id="nm_cliente"
-                                            placeholder="Nome" value="{$user.nm_cliente}" required>
+                                            placeholder="Nome" value="<?php echo htmlspecialchars( $user["nm_cliente"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="nr_celular">Celular</label>
                                         <input type="tel" class="form-control" name="nr_celular" id="nr_celular"
-                                            placeholder="(00) 0.0000-0000" value="{$user.nr_celular}" maxlength="16" readonly required>
+                                            placeholder="(00) 0.0000-0000" value="<?php echo htmlspecialchars( $user["nr_celular"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" maxlength="16" readonly required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="nr_cep">CEP</label>
-                                        <input type="text" class="form-control" value="{$user.nr_cep}" name="nr_cep" id="nr_cep" placeholder="00000-000"
+                                        <input type="text" class="form-control" value="<?php echo htmlspecialchars( $user["nr_cep"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" name="nr_cep" id="nr_cep" placeholder="00000-000"
                                             maxlength="9">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="nm_logradouro">Rua</label>
-                                        <input type="text" class="form-control" value="{$user.nm_logradouro}" name="nm_logradouro" id="nm_logradouro"
+                                        <input type="text" class="form-control" value="<?php echo htmlspecialchars( $user["nm_logradouro"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" name="nm_logradouro" id="nm_logradouro"
                                             placeholder="Rua" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="nm_bairro">Bairro</label>
-                                        <input type="text" class="form-control"  value="{$user.nm_bairro}" name="nm_bairro" id="nm_bairro" placeholder="Bairro"
+                                        <input type="text" class="form-control"  value="<?php echo htmlspecialchars( $user["nm_bairro"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" name="nm_bairro" id="nm_bairro" placeholder="Bairro"
                                             required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="nr_casa">Número (Casa/APT)</label>
-                                        <input type="text" class="form-control" value="{$user.nr_casa}" name="nr_casa" id="nr_casa" placeholder="Número da casa ou apartamento"
+                                        <input type="text" class="form-control" value="<?php echo htmlspecialchars( $user["nr_casa"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" name="nr_casa" id="nr_casa" placeholder="Número da casa ou apartamento"
                                             required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="nm_bloco">Bloco (Somento para apt)</label>
-                                        <input type="text" class="form-control" value="{$user.nm_bloco}" name="nm_bloco" id="nm_bloco" placeholder="Número da bloco"
+                                        <input type="text" class="form-control" value="<?php echo htmlspecialchars( $user["nm_bloco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" name="nm_bloco" id="nm_bloco" placeholder="Número da bloco"
                                             >
                                     </div>
                                 </div>

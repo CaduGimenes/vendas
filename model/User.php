@@ -90,7 +90,7 @@ class User extends Model {
                 ':nr_celular'=>$this->getnr_celular(),
                 ':nm_logradouro'=>$nm_logradouro,
                 ':nr_casa'=>$this->getnr_casa(),
-                ':nm_bairro'=>$this->$nm_bairro,
+                ':nm_bairro'=>$nm_bairro,
                 ':nr_cep'=>$this->getnr_cep(),
                 ':nm_bloco'=>$this->getnm_bloco()
             ]);
@@ -109,14 +109,16 @@ class User extends Model {
         
         $nm_logradouro = ucfirst($this->getnm_logradouro());
         $nm_bairro = ucfirst($this->getnm_bairro());
+        $nm_cliente = ucfirst($this->getnm_cliente());
 
-        $results = $sql->select("CALL sp_user_update_address(:cd_cliente, :nm_logradouro, :nm_bairro, :nr_casa, :nm_bloco, :nr_cep)", [
+        $results = $sql->select("CALL sp_user_update_address(:cd_cliente, :nm_logradouro, :nm_bairro, :nr_casa, :nm_bloco, :nr_cep, :nm_cliente)", [
             ':cd_cliente'=>(int)$cd_cliente,
             ':nm_logradouro'=>$nm_logradouro,
             ':nm_bairro'=>$nm_bairro,
             ':nr_casa'=>$this->getnr_casa(),
             ':nm_bloco'=>$this->getnm_bloco(),
-            ':nr_cep'=>$this->getnr_cep()
+            ':nr_cep'=>$this->getnr_cep(),
+            ':nm_cliente'=>$nm_cliente
         ]);
 
         $this->setData($results[0]);    

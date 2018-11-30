@@ -20,6 +20,10 @@ class Order extends Model{
         $_SESSION[Order::SESSION_DATA] = $data;
 
         for ($i=0; $i < $number; $i++) { 
+
+            if(empty($data['frutas'.$i][$i]) || $data['frutas'.$i][$i] === null) $data['frutas'.$i][$i] = '';
+            if(empty($data['caldas'.$i][$i]) || $data['caldas'.$i][$i] === null) $data['caldas'.$i][$i] = '';
+            if(empty($data['complemento'.$i][$i]) || $data['complemento'.$i][$i] === null) $data['complemento'.$i][$i] = '';
             
             if(!empty($data['pedido']) && $data['pedido'] != '') {
 
@@ -42,23 +46,6 @@ class Order extends Model{
 
         }
         
-    }
-
-    private function checkValues($data = array()){
-
-        $number = count($data["pedido"]);
-
-        for ($i=0; $i < $number; $i++) { 
-
-            if(empty($data['frutas'.$i][$i]) || $data['frutas'.$i][$i] === null) $data['frutas'.$i][$i] = '';
-            if(empty($data['caldas'.$i][$i]) || $data['caldas'.$i][$i] === null) $data['caldas'.$i][$i] = '';
-            if(empty($data['complemento'.$i][$i]) || $data['complemento'.$i][$i] === null) $data['complemento'.$i][$i] = '';
-        
-        }
-
-
-        
-
     }
 
 }
