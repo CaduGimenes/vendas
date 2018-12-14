@@ -2,10 +2,15 @@
 
 use Model\Page;
 use Model\User;
+use Model\Order;
 
 $app->get('/', function(){
 
-    User::logout();
+    $user = new User();
+    $order = new Order();
+
+    $order->deleteSession();
+    $user->logout();
 
     $page = new Page([
         'title'=>'Pedido',
@@ -35,7 +40,7 @@ $app->get('/register', function(){
     ]);
 
     $page->setTpl('register',[
-        'user'=>$_SESSION[User::SESSION]
+        'user'=>User::getSession()
     ]);
 
 });
@@ -48,7 +53,7 @@ $app->post('/register', function(){
 
     $user->save();
 
-    $_SESSION[User::SESSION] = $user->getValues();
+    $user->setSession($user->getValues());
 
     header("Location: /order/make");
     exit;

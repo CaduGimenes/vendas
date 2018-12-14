@@ -1,7 +1,5 @@
 <?php
 
-use Model\Order;
-
 function formatPrice($valor)
 {
 

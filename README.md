@@ -41,7 +41,7 @@ Em caso de problemas tente:
 $ composer update
 ```
 
-#### Requerimentos
+### Requerimentos
 
 Para o funcionamento correto do sistema é necessário possuir os seguintes itens:
 

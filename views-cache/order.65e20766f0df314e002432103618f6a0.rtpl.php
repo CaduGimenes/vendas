@@ -183,6 +183,7 @@
     //Fechar abas de pedido
     $('#close').click(function () {
       $('#order_' + i).remove();
+      $('#tab_' + i).remove();
 
       if ($('.tab_' + i).click()) {
 

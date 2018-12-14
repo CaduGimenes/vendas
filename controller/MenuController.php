@@ -5,8 +5,13 @@ use Model\Fruit;
 use Model\Size;
 use Model\Syrup;
 use Model\Complement;
+use Model\User;
 
 $app->get('/menu', function(){
+
+    $user = new User;
+
+    $user->logout();
 
     $fruit = Fruit::listAll();
     $size = Size::listAll();

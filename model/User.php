@@ -9,9 +9,29 @@ class User extends Model {
 
     const SESSION = "User";
 
+    public static function getSession(){
+
+        return $_SESSION[User::SESSION];
+
+    }
+
+    public function setSession($data = array()){
+
+        $_SESSION[User::SESSION] = $data;
+
+    }
+
+    public function getClienteId(){
+
+        return $_SESSION[User::SESSION]['cd_cliente'];
+
+    }
+
     public static function verifyLogin(){
 
-        if($_SESSION[User::SESSION] === NULL){
+        $user = User::getSession();
+
+        if($user === NULL){
 
             echo("<script>window.location.href = '/';</script>");
 
@@ -49,7 +69,7 @@ class User extends Model {
 
         if(count($results) === 0) {
 
-            $_SESSION[User::SESSION] = ['nr_celular'=>$nr_celular];
+            $this->setSession(['nr_celular'=>$nr_celular]);
 
             header("Location: /register");
 
@@ -61,7 +81,7 @@ class User extends Model {
 
             $user->setData($data);
 
-            $_SESSION[User::SESSION] = $user->getValues();
+            $this->setSession($user->getValues());
 
             header("Location: /order/information");
 
@@ -69,9 +89,9 @@ class User extends Model {
 
     }
 
-    public static function logout() {
+    public function logout() {
 
-        $_SESSION[User::SESSION] = null;
+        $this->setSession(null);
 
     } 
 
@@ -101,9 +121,11 @@ class User extends Model {
 
     }  
 
-    public function updateAddress($cd_cliente){
+    public function updateAddress(){
 
         $sql = new Sql();
+
+        $cd_cliente = $this->getClienteId();
 
         if(null != $this->getnm_logradouro() || $this->getnm_logradouro() != '') {
         

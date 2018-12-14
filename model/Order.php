@@ -2,20 +2,42 @@
 
 namespace Model;
 
-use Model\Model;
 use Model\Sql;
+use Model\Model;
+use Model\User;
 
 class Order extends Model
 {
 
     const SESSION_DATA = "Order Data";
+    const SESSION_TOTAL = "";
 
-    public function save($data = array(), $clientId)
+    public function createSession($session = array()){
+
+        $_SESSION[Order::SESSION_DATA] = $session;
+
+    }
+
+    public function getSession(){
+
+        return $_SESSION[Order::SESSION_DATA];
+
+    }
+
+    public function deleteSession(){
+
+        $_SESSION[Order::SESSION_TOTAL] = null;
+
+    }
+
+    public function save()
     {
 
-        $number = count($data["pedido"]);
+        $data = $this->getSession();
 
-        $_SESSION[Order::SESSION_DATA] = $data;
+        $clientId = $_SESSION[User::SESSION]['cd_cliente'];
+
+        $number = count($data["pedido"]);
 
         $this->checkValues($data, $number, $clientId);
 
@@ -66,21 +88,34 @@ class Order extends Model
     public function getTotal()
     {
 
-        $data = $_SESSION[Order::SESSION_DATA];
+        $data = $this->getSession();
 
         $sql = new Sql();
 
         $count = count($data["pedido"]);
 
+        $total = 0;
+
+        $results = [];
+
         for ($i = 0; $i < $count; $i++) {
 
-            $results = $sql->select("SELECT * FROM tb_tamanho WHERE nm_tamanho = :nm_tamanho", [
+            $resultQuery = $sql->select("SELECT vl_tamanho FROM tb_tamanho WHERE nm_tamanho = :nm_tamanho", [
                 ':nm_tamanho' => $data["tamanho" . $i][0]
             ]);
 
-            print_r($results[0])
+            array_push($results, $resultQuery[0]);
 
         }
+
+        foreach($results as $item){
+
+            $total += $item['vl_tamanho'];
+
+        }
+
+        $_SESSION[Order::SESSION_TOTAL] = (float)$total;
+        return $total;
 
     }
 

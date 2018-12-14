@@ -26,7 +26,7 @@ class Size extends Model {
         $results = $sql->select("CALL sp_size_save(:cd_tamanho, :nm_tamanho, :vl_tamanho)", [
             ':cd_tamanho'=>$this->getcd_tamanho(),
             ':nm_tamanho'=>$nm_tamanho,
-            ':vl_tamanho'=>(int)$vl_tamanho
+            ':vl_tamanho'=>(float)$vl_tamanho
         ]);
 
         $this->setData($results[0]);

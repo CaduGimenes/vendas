@@ -11,7 +11,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <div id="error"></div>
+
         <!-- Default box -->
         <div class="login-box">
             <div class="login-logo">

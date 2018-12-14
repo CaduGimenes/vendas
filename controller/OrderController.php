@@ -28,18 +28,16 @@ $app->get('/order/make', function () {
         'size' => $size,
         'syrup' => $syrup,
         'complement' => $complement,
-        'user' => $_SESSION[User::SESSION],
+        'user' => User::getSession(),
     ]);
 
 });
 
 $app->post('/order/make', function () {
 
-    $id = $_SESSION[User::SESSION]['cd_cliente'];
-
     $order = new Order();
 
-    $order->save($_POST, $id);
+    $order->createSession($_POST);
 
     header("Location: /order/confirm");
     exit;
@@ -48,25 +46,31 @@ $app->post('/order/make', function () {
 
 $app->get('/order/confirm', function () {
 
-    echo "<pre>";
-    print_r($_SESSION[Order::SESSION_DATA]);
-    echo "</pre>";
-
     User::verifyLogin();
 
     $order = new Order();
-
-    $order->getTotal();
 
     $page = new Page([
         'title' => 'Confirmar Pedido',
         'order' => 'active',
         'menu' => '',
+        'total'=>$order->getTotal()
     ]);
 
     $page->setTpl('orderConfirm', [
-        'user' => $_SESSION[User::SESSION],
+        'user' => User::getSession(),
     ]);
+
+});
+
+$app->post('/order/confirm', function(){
+
+    $order = new Order();
+
+    $order->save();
+
+    User::verifyLogin();
+
 
 });
 
@@ -81,7 +85,7 @@ $app->get('/order/information', function () {
     ]);
 
     $page->setTpl('userInformation', [
-        'user' => $_SESSION[User::SESSION],
+        'user' => User::getSession(),
     ]);
 
 });
@@ -97,7 +101,7 @@ $app->get('/order/update/address', function () {
     ]);
 
     $page->setTpl('updateAddress', [
-        'user' => $_SESSION[User::SESSION],
+        'user' => User::getSession(),
     ]);
 
 });
@@ -108,7 +112,7 @@ $app->post('/order/update/address', function () {
 
     $user->setData($_POST);
 
-    $user->updateAddress($_SESSION[User::SESSION]['cd_cliente']);
+    $user->updateAddress();
 
     header("Location: /order/make");
     exit;
