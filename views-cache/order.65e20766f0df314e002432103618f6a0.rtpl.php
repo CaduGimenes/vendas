@@ -160,10 +160,9 @@
 
       if (i < 0) i = 0
 
-      if (i == 0) i = 1
+      if (i === 0) i = 1
 
-      $('#nav-tabs').append('<li id="order_' + i + '"><a href="#tab_' + i + '" class="tab_' + i +
-        '" data-toggle="tab">Pedido ' + (i + 1) + '</a></li>')
+      $('#nav-tabs').append('<li id="order_' + i + '"><a href="#tab_' + i + '" class="tab_'+i+'" data-toggle="tab">Pedido ' + (i + 1) + '</a></li>')
       $('#tab-content').append('<div class="tab-pane" id="tab_' + i +
         '"> <input type="hidden" name="pedido[]"> <div class="row"> <div class="col-md-4"> <div class="form-group"> <label>Tamanho</label> <select class="form-control" id="size_' +
         i + '" name="tamanho' + i +
@@ -177,13 +176,14 @@
         i + '<?php echo htmlspecialchars( $value1["cd_complemento"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="styled" value="<?php echo htmlspecialchars( $value1["nm_complemento"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" name="complemento' + i +
         '[]"> <label for="complementCheck' + i +
         '<?php echo htmlspecialchars( $value1["cd_complemento"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["nm_complemento"], ENT_COMPAT, 'UTF-8', FALSE ); ?></label> </div><?php } ?></div></div></div>')
-      $('.tab_' + i).click()
+        
+        $('.tab_' + i).click()
+
     })
 
     //Fechar abas de pedido
     $('#close').click(function () {
       $('#order_' + i).remove();
-      $('#tab_' + i).remove();
 
       if ($('.tab_' + i).click()) {
 

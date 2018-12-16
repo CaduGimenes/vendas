@@ -2,8 +2,8 @@
 
 namespace Model;
 
-use Model\Sql;
 use Model\Model;
+use Model\Sql;
 use Model\User;
 
 class Order extends Model
@@ -12,19 +12,22 @@ class Order extends Model
     const SESSION_DATA = "Order Data";
     const SESSION_TOTAL = "";
 
-    public function createSession($session = array()){
+    public function createSession($session = array())
+    {
 
         $_SESSION[Order::SESSION_DATA] = $session;
 
     }
 
-    public function getSession(){
+    public function getSession()
+    {
 
         return $_SESSION[Order::SESSION_DATA];
 
     }
 
-    public function deleteSession(){
+    public function deleteSession()
+    {
 
         $_SESSION[Order::SESSION_TOTAL] = null;
 
@@ -101,21 +104,51 @@ class Order extends Model
         for ($i = 0; $i < $count; $i++) {
 
             $resultQuery = $sql->select("SELECT vl_tamanho FROM tb_tamanho WHERE nm_tamanho = :nm_tamanho", [
-                ':nm_tamanho' => $data["tamanho" . $i][0]
+                ':nm_tamanho' => $data["tamanho" . $i][0],
             ]);
 
             array_push($results, $resultQuery[0]);
 
         }
 
-        foreach($results as $item){
+        foreach ($results as $item) {
 
             $total += $item['vl_tamanho'];
 
         }
 
-        $_SESSION[Order::SESSION_TOTAL] = (float)$total;
+        $_SESSION[Order::SESSION_TOTAL] = (float) $total;
+
         return $total;
+
+    }
+
+    public function getOrders()
+    {
+
+        $data = $this->getSession();
+
+        $sql = new Sql();
+
+        $count = count($data["pedido"]);
+
+        $results = [];
+
+        for ($i = 0; $i < $count; $i++) {
+
+            $resultQuery = $sql->select("SELECT vl_tamanho FROM tb_tamanho WHERE nm_tamanho = :nm_tamanho", [
+                ':nm_tamanho' => $data["tamanho" . $i][0],
+            ]);
+
+            foreach ($resultQuery[0] as $key => $value) {
+
+                array_push($results, array('tamanho' => $data['tamanho' . $i][0], 'valor' => $value));
+
+            }
+
+        }
+
+        return $results;
 
     }
 

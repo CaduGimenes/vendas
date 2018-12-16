@@ -1,16 +1,12 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?><!-- =============================================== -->
 <style>
-.total{
 
-padding-bottom: 30px;
+    .spacing{
 
-}
-
-.inline{
-
-    display: inline;
+    float: right;
 
 }
+
 </style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -36,35 +32,25 @@ padding-bottom: 30px;
                         <div class="col-md-6">
                             <div class="callout callout-success">
                                 <h4>Pedidos</h4>
-
                                 <ol>
-                                    <li>Lorem ipsum dolor sit amet</li>
-                                    <li>Consectetur adipiscing elit</li>
-                                    <li>Integer molestie lorem at massa</li>
-                                    <li>Facilisis in pretium nisl aliquet</li>
-                                    <li>Nulla volutpat aliquam velit
-                                        <ol>
-                                            <li>Phasellus iaculis neque</li>
-                                            <li>Purus sodales ultricies</li>
-                                            <li>Vestibulum laoreet porttitor sem</li>
-                                            <li>Ac tristique libero volutpat at</li>
-                                        </ol>
-                                    </li>
-                                    <li>Faucibus porta lacus fringilla vel</li>
-                                    <li>Aenean sit amet erat nunc</li>
-                                    <li>Eget porttitor lorem</li>
+                                    <?php $counter1=-1;  if( isset($orders) && ( is_array($orders) || $orders instanceof Traversable ) && sizeof($orders) ) foreach( $orders as $key1 => $value1 ){ $counter1++; ?>
+
+                                    <li><?php echo htmlspecialchars( $value1["tamanho"], ENT_COMPAT, 'UTF-8', FALSE ); ?><b class="spacing">R$<?php echo formatPrice($value1["valor"]); ?></b></li>
+                                    <hr style="border-top:dotted;">
+                                    <?php } ?>
+
                                 </ol>
                             </div>
 
                         </div>
                         <div class="col-md-6">
-                            <h1 class="total">Total: <?php echo formatPrice($total); ?></h1>
+                            <h1 class="total">Total: R$<?php echo formatPrice($total); ?></h1>
                             <form action="" method="post" class="total">
                                 <label for="clientValue"> Valor pago:</label>
                                 <input class="form-control" type="text" name="clientValue" id="clientValue">
                             </form>
                             <h2>Troco:</h2>
-                            <h1 id="change"></h1>
+                            <h1 id="change">R$</h1>
                         </div>
 
                     </div>
@@ -84,7 +70,6 @@ padding-bottom: 30px;
 
 <script>
     $(document).ready(function () {
-        $.noConflict();
 
         $('#clientValue').mask("#.###,00", {
             reverse: true
@@ -98,14 +83,14 @@ padding-bottom: 30px;
 
             $('#change').empty()
 
-            console.log(dados)
+            console.log(dados.replace(',', '.'))
 
             $.ajax({
                 type: 'POST',
                 url: '../dist/functions/getChange.php',
                 async: true,
                 data: {
-                    clientValue: dados
+                    clientValue: dados.replace('.', '').replace(',', '.')
                 },
                 success: function (response) {
                     $('#change').append(response)

@@ -1,22 +1,23 @@
 <?php
 
-require("../../vendor/autoload.php");
+require "../../vendor/autoload.php";
 
 session_start();
 
 use Model\Order;
 
-$total = $_SESSION[Order::SESSION_TOTAL];
+$total = (float) $_SESSION[Order::SESSION_TOTAL];
 
-$clientValue = str_replace('.', '', (float)$_REQUEST['clientValue']);
+$removeDot = str_replace(',', '.', (float) $_REQUEST['clientValue']);
 
+$clientValue = $removeDot;
 
-(float)$change = $clientValue - $total;
+$change = $clientValue - $total;
 
-if(empty($clientValue) || $clientValue === null){
+if (empty($clientValue) || $clientValue === null) {
 
     $change = 0;
 
 }
 
-echo $change;
+echo "R$" . number_format($change, 2, '.', '');

@@ -54,7 +54,8 @@ $app->get('/order/confirm', function () {
         'title' => 'Confirmar Pedido',
         'order' => 'active',
         'menu' => '',
-        'total'=>$order->getTotal()
+        'total'=>$order->getTotal(),
+        'orders'=>$order->getOrders()
     ]);
 
     $page->setTpl('orderConfirm', [

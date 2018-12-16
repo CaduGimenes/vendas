@@ -15,7 +15,7 @@
         <!-- Default box -->
         <div class="login-box">
             <div class="login-logo">
-                <a href="/"><b>Pedido</b></a>
+                <b>Pedido</b>
             </div>
             <!-- /.login-logo -->
             <div class="login-box-body">
