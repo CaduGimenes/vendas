@@ -50,6 +50,7 @@
                                 <input class="form-control" type="text" name="clientValue" id="clientValue">
                             </form>
                             <h2>Troco:</h2>
+                            <input type="hidden" name="change" value="" id="changeInput">
                             <h1 id="change">R$</h1>
                         </div>
 
@@ -83,8 +84,6 @@
 
             $('#change').empty()
 
-            console.log(dados.replace(',', '.'))
-
             $.ajax({
                 type: 'POST',
                 url: '../dist/functions/getChange.php',
@@ -94,6 +93,7 @@
                 },
                 success: function (response) {
                     $('#change').append(response)
+                    $('#changeInput').val(reponse)
                 }
             });
 

@@ -18,6 +18,10 @@ class Page {
         
         $this->options = array_merge($this->defaults, $opts);
 
+        if(!is_dir($_SERVER['DOCUMENT_ROOT']."/views-cache")){
+            mkdir($_SERVER['DOCUMENT_ROOT']."/views-cache", 0777);
+        }
+
         $config = array (
             "tpl_dir" => $_SERVER['DOCUMENT_ROOT'].$tpl_dir,
             "cache_dir" => $_SERVER['DOCUMENT_ROOT']."/views-cache/",

@@ -4,6 +4,7 @@ use Model\Complement;
 use Model\Fruit;
 use Model\Order;
 use Model\Page;
+use Model\PrintOut;
 use Model\Size;
 use Model\Syrup;
 use Model\User;
@@ -54,8 +55,8 @@ $app->get('/order/confirm', function () {
         'title' => 'Confirmar Pedido',
         'order' => 'active',
         'menu' => '',
-        'total'=>$order->getTotal(),
-        'orders'=>$order->getOrders()
+        'total' => $order->getTotal(),
+        'orders' => $order->getOrders(),
     ]);
 
     $page->setTpl('orderConfirm', [
@@ -64,14 +65,17 @@ $app->get('/order/confirm', function () {
 
 });
 
-$app->post('/order/confirm', function(){
-
-    $order = new Order();
-
-    $order->save();
+$app->post('/order/confirm', function () {
 
     User::verifyLogin();
 
+    $order = new Order();
+
+    $printOut = new PrintOut();
+
+    $order->save();
+
+    $printOut->printOrder();
 
 });
 

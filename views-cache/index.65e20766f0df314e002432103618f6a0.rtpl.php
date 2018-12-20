@@ -19,7 +19,7 @@
             </div>
             <!-- /.login-logo -->
             <div class="login-box-body">
-                <p class="login-box-msg">Informe o número do celular para continuar.</p>
+                <p class="login-box-msg">Informe o número de contato para continuar.</p>
                 <form action="/" method="post">
                     <div class="form-group has-feedback">
                         <input type="tel" class="form-control" name="nr_celular" id="nr_celular" placeholder="(00) 0.0000-0000"

@@ -1,6 +1,6 @@
 {
     "name": "cadug/vendas",
-    "description": "Venda de Produtos",
+    "description": "Sistema para a venda de açaí.",
     "type": "project",
     "authors": [
         {
@@ -11,7 +11,9 @@
     "minimum-stability": "dev",
     "require": {
         "slim/slim":"2.*",
-    	"rain/raintpl":"3.0.0"
+    	"rain/raintpl":"3.0.0",
+        "mike42/escpos-php": "dev-master",
+        "guzzlehttp/guzzle": "^6.3@dev"
     },
     "autoload": {
         "psr-4": {

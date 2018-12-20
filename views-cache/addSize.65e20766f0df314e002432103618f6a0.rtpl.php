@@ -42,8 +42,6 @@
                         <button type="submit" class="btn btn-success pull-right">Cadastrar</button>
                     </div>
         </form>
-
-
         <!-- /.box-footer-->
 </div>
 <!-- /.box -->
@@ -52,3 +50,6 @@
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- /.content-wrapper -->
+<script src="/bower_components/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
