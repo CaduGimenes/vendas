@@ -21,11 +21,11 @@
 
 ### Inclua ás bibliotecas
 
-### Bower
+### NPM
 Use o seguinte comando fazer o download de todas as dependências:
 
-```node
-$ bower install
+```bash
+$ npm install
 ```
 ### Composer
 

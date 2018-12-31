@@ -25,11 +25,11 @@ a solution to the small entrepreneurs of the açaí branch (*traditional Brazili
 
 ### Include the librarys
 
-### Bower
+### NPM
 Use the following command to download all dependencies:
 
-```node
-$ bower install
+```bash
+$ npm install
 ```
 ### Composer
 
