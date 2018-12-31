@@ -8,7 +8,9 @@ $app->get('/menu/size/create', function(){
     $page = new Page([
         'title'=>'Adicionar Tamanho',
         'order'=>'',
-        'menu'=>'active'
+        'menu'=>'active',
+        'client'=>'',
+        'district'=>''
     ]);
 
     $page->setTpl('addSize');
@@ -37,7 +39,9 @@ $app->get('/menu/size/update/:cd_tamanho', function($cd_tamanho){
     $page = new Page([
         'title'=>'Alterar Tamanho',
         'order'=>'',
-        'menu'=>'active'
+        'menu'=>'active',
+        'client'=>'',
+        'district'=>''
     ]);
 
     $page->setTpl("updateSize", [

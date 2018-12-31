@@ -8,7 +8,9 @@ $app->get('/menu/syrup/create', function(){
     $page = new Page([
         'title'=>'Adicionar Calda',
         'order'=>'',
-        'menu'=>'active'
+        'menu'=>'active',
+        'client'=>'',
+        'district'=>''
     ]);
 
     $page->setTpl("addSyrup");
@@ -37,7 +39,9 @@ $app->get('/menu/syrup/update/:cd_calda', function($cd_calda){
     $page = new Page([
         'title'=>'Alterar calda',
         'order'=>'',
-        'menu'=>'active'
+        'menu'=>'active',
+        'client'=>'',
+        'district'=>''
     ]);
 
     $page->setTpl("updateSyrup", [

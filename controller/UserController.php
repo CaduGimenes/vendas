@@ -15,7 +15,9 @@ $app->get('/', function(){
     $page = new Page([
         'title'=>'Pedido',
         'order'=>'active',
-        'menu'=>''
+        'menu'=>'',
+        'district'=>'',
+        'client'=>''
     ]);
 
     $page->setTpl('index');
@@ -36,7 +38,9 @@ $app->get('/register', function(){
     $page = new Page([
         'title'=>'Cadastro',
         'order'=>'active',
-        'menu'=>''
+        'menu'=>'',
+        'client'=>'',
+        'district'=>''
     ]);
 
     $page->setTpl('register',[

@@ -145,7 +145,7 @@
 </div>
 
 <!-- jQuery 3 -->
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
 
 <!-- /.content-wrapper -->
 <script type="text/javascript">

@@ -45,8 +45,8 @@
     </section>
     <!-- /.content -->
 </div>
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <!-- /.content-wrapper -->
-<script src="/bower_components/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+<script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 <!-- Mask Js-->
 <script src="/dist/js/masks.js"></script>

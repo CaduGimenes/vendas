@@ -21,7 +21,9 @@ $app->get('/menu', function(){
     $page = new Page([
         'title'=>'Cardápio',
         'order'=>'',
-        'menu'=>'active'
+        'menu'=>'active',
+        'client'=>'',
+        'district'=>''
     ]);
 
     $page->setTpl("menu",[

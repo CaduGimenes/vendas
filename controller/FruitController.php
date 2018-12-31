@@ -8,7 +8,9 @@ $app->get('/menu/fruit/create', function(){
     $page = new Page([
         'title'=>'Adicionar Fruta',
         'order'=>'',
-        'menu'=>'active'
+        'menu'=>'active',
+        'client'=>'',
+        'district'=>''
     ]);
 
     $page->setTpl("addFruit");
@@ -37,7 +39,9 @@ $app->get('/menu/fruit/update/:cd_fruta', function($cd_fruta) {
     $page = new Page([
         'title'=>'Alterar Fruta',
         'order'=>'',
-        'menu'=>'active'
+        'menu'=>'active',
+        'client'=>'',
+        'district'=>''
     ]);
 
     $page->setTpl("updateFruit",[

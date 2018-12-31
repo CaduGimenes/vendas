@@ -12,17 +12,17 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <!-- jQuery input mask -->
-<script src="/bower_components/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+<script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 <!-- Mask Js-->
 <script src="/dist/js/masks.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- SlimScroll -->
-<script src="/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="/node_modules/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="/node_modules/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->

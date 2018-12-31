@@ -8,7 +8,9 @@ $app->get('/menu/complement/create', function(){
     $page = new Page([
         'title'=>'Adicionar Complemento',
         'order'=>'',
-        'menu'=>'active'
+        'menu'=>'active',
+        'client'=>'',
+        'district'=>''
     ]);
 
     $page->setTpl("addComplement");
@@ -37,7 +39,9 @@ $app->get('/menu/complement/update/:cd_complement', function($cd_complement){
     $page = new Page([
         'title'=>'Alterar Complemento',
         'order'=>'',
-        'menu'=>'active'
+        'menu'=>'active',
+        'client'=>'',
+        'district'=>''
     ]);
 
     $page->setTpl("updateComplement",[

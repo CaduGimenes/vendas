@@ -22,6 +22,8 @@ $app->get('/order/make', function () {
         'title' => 'Pedido',
         'order' => 'active',
         'menu' => '',
+        'client'=>'',
+        'district'=>''
     ]);
 
     $page->setTpl("order", [
@@ -55,6 +57,8 @@ $app->get('/order/confirm', function () {
         'title' => 'Confirmar Pedido',
         'order' => 'active',
         'menu' => '',
+        'client'=>'',
+        'district'=>'',
         'total' => $order->getTotal(),
         'orders' => $order->getOrders(),
     ]);
@@ -87,6 +91,8 @@ $app->get('/order/information', function () {
         'title' => 'Confirmar informações',
         'order' => 'active',
         'menu' => '',
+        'client'=>'',
+        'district'=>''
     ]);
 
     $page->setTpl('userInformation', [
@@ -103,6 +109,8 @@ $app->get('/order/update/address', function () {
         'title' => 'Alterar endereço',
         'order' => 'active',
         'menu' => '',
+        'client'=>'',
+        'district'=>''
     ]);
 
     $page->setTpl('updateAddress', [
