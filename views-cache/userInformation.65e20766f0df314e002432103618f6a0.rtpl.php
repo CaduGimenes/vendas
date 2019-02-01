@@ -35,13 +35,6 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="nr_cep">CEP</label>
-                                            <input type="text" class="form-control" name="nr_cep" id="nr_cep" placeholder="00000-000"
-                                                maxlength="9" value="<?php echo htmlspecialchars( $user["nr_cep"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
                                             <label for="nm_logradouro">Rua</label>
                                             <input type="text" class="form-control" name="nm_logradouro" id="nm_logradouro"
                                                 placeholder="Rua" value="<?php echo htmlspecialchars( $user["nm_logradouro"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" readonly>

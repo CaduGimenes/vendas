@@ -52,7 +52,7 @@ For correct operation of the system it is necessary to have the following items:
 - PHP 7.2.* or above;
 - [Composer](https://getcomposer.org);
 - [NodeJS](https://nodejs.org/en/);
-- [Bower](https://bower.io/).
+- [MySQL](https://www.mysql.com/).
 
 ### Licença
 - [MIT](https://github.com/CaduGimenes/vendas/blob/master/LICENSE);

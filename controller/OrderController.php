@@ -8,6 +8,7 @@ use Model\PrintOut;
 use Model\Size;
 use Model\Syrup;
 use Model\User;
+use Model\District;
 
 $app->get('/order/make', function () {
 
@@ -115,6 +116,7 @@ $app->get('/order/update/address', function () {
 
     $page->setTpl('updateAddress', [
         'user' => User::getSession(),
+        'getDistrict'=>District::listAll()
     ]);
 
 });

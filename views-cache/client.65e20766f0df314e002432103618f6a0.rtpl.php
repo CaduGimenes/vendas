@@ -29,7 +29,6 @@
                   <th>#</th>
                   <th>Nome</th>
                   <th>Telefone</th>
-                  <th>CEP</th>
                   <th>Bairro</th>
                   <th>Rua</th>
                   <th>Bloco</th>
@@ -42,7 +41,6 @@
                   <td><?php echo htmlspecialchars( $value1["cd_cliente"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                   <td><?php echo htmlspecialchars( $value1["nm_cliente"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                   <td><?php echo htmlspecialchars( $value1["nr_celular"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                  <td><?php echo htmlspecialchars( $value1["nr_cep"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                   <td><?php echo htmlspecialchars( $value1["nm_bairro"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                   <td><?php echo htmlspecialchars( $value1["nm_logradouro"], ENT_COMPAT, 'UTF-8', FALSE ); ?>, <?php echo htmlspecialchars( $value1["nr_casa"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                   <td><?php echo htmlspecialchars( $value1["nm_bloco"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
@@ -55,7 +53,6 @@
                   <th>#</th>
                   <th>Nome</th>
                   <th>Telefone</th>
-                  <th>CEP</th>
                   <th>Bairro</th>
                   <th>Rua</th>
                   <th>Bloco</th>

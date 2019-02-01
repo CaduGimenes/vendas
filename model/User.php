@@ -55,15 +55,16 @@ class User extends Model {
 
         $sql = new Sql();
 
-        return $sql->select("SELECT * FROM tb_endereco a INNER JOIN tb_cliente b USING(cd_cliente) ORDER BY a.cd_cliente;");
+        return $sql->select("SELECT * FROM tb_endereco a INNER JOIN tb_cliente b USING(cd_cliente) INNER JOIN tb_frete USING(cd_bairro) ORDER BY a.cd_cliente;");
 
     }
+
 
     public function login($nr_celular = 0) {
 
         $sql = new Sql();
 
-        $results = $sql->select("SELECT * FROM tb_cliente a INNER JOIN tb_endereco b USING(cd_cliente) WHERE nr_celular = :nr_celular", [
+        $results = $sql->select("SELECT * FROM tb_cliente a INNER JOIN tb_endereco b USING(cd_cliente) INNER JOIN tb_frete USING(cd_bairro) WHERE nr_celular = :nr_celular", [
             ':nr_celular'=>$nr_celular
         ]);
 
@@ -103,16 +104,14 @@ class User extends Model {
 
             $nm_cliente = ucfirst($this->getnm_cliente());
             $nm_logradouro = ucfirst($this->getnm_logradouro());
-            $nm_bairro = ucfirst($this->getnm_bairro());
 
-            $results = $sql->select("CALL sp_user_save(:nm_cliente, :nr_celular, :nm_logradouro, :nm_bairro, :nr_casa, :nm_bloco, :nr_cep)",[
+            $results = $sql->select("CALL sp_user_save(:nm_cliente, :nr_celular, :nm_logradouro, :nr_casa, :nm_bloco, :nm_bairro)",[
                 ':nm_cliente'=>$nm_cliente,
                 ':nr_celular'=>$this->getnr_celular(),
                 ':nm_logradouro'=>$nm_logradouro,
                 ':nr_casa'=>$this->getnr_casa(),
-                ':nm_bairro'=>$nm_bairro,
-                ':nr_cep'=>$this->getnr_cep(),
-                ':nm_bloco'=>$this->getnm_bloco()
+                ':nm_bloco'=>$this->getnm_bloco(),
+                ':nm_bairro'=>(int)$this->getnm_bairro()
             ]);
     
             $this->setData($results[0]);
@@ -130,17 +129,15 @@ class User extends Model {
         if(null != $this->getnm_logradouro() || $this->getnm_logradouro() != '') {
         
         $nm_logradouro = ucfirst($this->getnm_logradouro());
-        $nm_bairro = ucfirst($this->getnm_bairro());
         $nm_cliente = ucfirst($this->getnm_cliente());
 
-        $results = $sql->select("CALL sp_user_update_address(:cd_cliente, :nm_logradouro, :nm_bairro, :nr_casa, :nm_bloco, :nr_cep, :nm_cliente)", [
+        $results = $sql->select("CALL sp_user_update_address(:cd_cliente, :nm_logradouro, :nr_casa, :nm_bloco, :nm_cliente, :cd_bairro)", [
             ':cd_cliente'=>(int)$cd_cliente,
             ':nm_logradouro'=>$nm_logradouro,
-            ':nm_bairro'=>$nm_bairro,
             ':nr_casa'=>$this->getnr_casa(),
             ':nm_bloco'=>$this->getnm_bloco(),
-            ':nr_cep'=>$this->getnr_cep(),
-            ':nm_cliente'=>$nm_cliente
+            ':nm_cliente'=>$nm_cliente,
+            ':cd_bairro'=>$this->getcd_bairro()
         ]);
 
         $this->setData($results[0]);    

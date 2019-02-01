@@ -16,6 +16,7 @@ require_once("controller".DIRECTORY_SEPARATOR."SyrupController.php");
 require_once("controller".DIRECTORY_SEPARATOR."ComplementController.php");
 require_once("controller".DIRECTORY_SEPARATOR."UserController.php");
 require_once("controller".DIRECTORY_SEPARATOR."ClientController.php");
+require_once("controller".DIRECTORY_SEPARATOR."DistrictController.php");
 
 $app->run();
 

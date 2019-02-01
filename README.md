@@ -19,7 +19,7 @@
 
 # Uso básico
 
-### Inclua ás bibliotecas
+### Faça download das bibliotecas
 
 ### NPM
 Use o seguinte comando fazer o download de todas as dependências:
@@ -48,7 +48,7 @@ Para o funcionamento correto do sistema é necessário possuir os seguintes iten
 - PHP 7.2.* ou superior;
 - [Composer](https://getcomposer.org);
 - [NodeJS](https://nodejs.org/en/);
-- [Bower](https://bower.io/).
+- [MySQL](https://www.mysql.com/).
 
 ### Licença
 - [MIT](https://github.com/CaduGimenes/vendas/blob/master/LICENSE);

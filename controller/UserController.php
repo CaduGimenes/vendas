@@ -3,6 +3,7 @@
 use Model\Page;
 use Model\User;
 use Model\Order;
+use Model\District;
 
 $app->get('/', function(){
 
@@ -40,7 +41,8 @@ $app->get('/register', function(){
         'order'=>'active',
         'menu'=>'',
         'client'=>'',
-        'district'=>''
+        'district'=>'',
+        'districtValues'=>District::listAll()
     ]);
 
     $page->setTpl('register',[
