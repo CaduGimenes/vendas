@@ -23,7 +23,6 @@ a solution to the small entrepreneurs of the açaí branch (*traditional Brazili
 ### Confirmation.
 ![](https://i.ibb.co/5xQS3qj/screencapture-localhost-order-confirm-2019-02-23-17-51-51.png)
 
-> Tabs for: Inform customer, confirm data and make the request.
 
 # Basic usage
 
