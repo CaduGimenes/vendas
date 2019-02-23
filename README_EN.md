@@ -14,7 +14,7 @@ a solution to the small entrepreneurs of the açaí branch (*traditional Brazili
 ### The system:
 
 ### Start the order.
-![](https://i.ibb.co/vByym17/screencapture-localhost-2019-02-23-17-32-05.png)4
+![](https://i.ibb.co/vByym17/screencapture-localhost-2019-02-23-17-32-05.png)
 
 
 ### Realization of the order.
