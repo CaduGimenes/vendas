@@ -45,8 +45,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="nm_bairro">Bairro*</label>
-                                    <select name="nm_bairro" id="nm_bairro" class="form-control" required>
-                                        <option disabled>Selecione um bairro</option>
+                                    <select name="nm_bairro" id="nm_bairro" class="form-control" required oninput="this.setCustomValidity('')">
+                                        <option value="" disabled selected>Selecione um bairro</option>
                                         {loop="$districtValues"}
                                         <option value="{$value.cd_bairro}">{$value.nm_bairro}</option>
                                         {/loop}

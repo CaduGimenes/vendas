@@ -4,7 +4,7 @@ namespace Model;
 
 class Sql {
 
-	const HOSTNAME = "127.0.0.1";
+	const HOSTNAME = "db";
 	const USERNAME = "root"; //YOUR USER
 	const PASSWORD = "root"; //YOUR PASSWORD
 	const DBNAME = "db_vendas";

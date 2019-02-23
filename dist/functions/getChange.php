@@ -21,3 +21,5 @@ if (empty($clientValue) || $clientValue === null) {
 }
 
 echo "R$" . number_format($change, 2, '.', '');
+
+$_SESSION['change'] = number_format($change, 2, '.', '');

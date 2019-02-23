@@ -33,39 +33,48 @@
                             <div class="callout callout-success">
                                 <h4>Pedidos</h4>
                                 <ol>
+                                    <li>Entrega<b class="spacing">R${function="formatPrice($user.vl_frete)"}</b></li>
+                                    <hr style="border-top:dotted;">
                                     {loop="$orders"}
                                     <li>{$value.tamanho}<b class="spacing">R${function="formatPrice($value.valor)"}</b></li>
                                     <hr style="border-top:dotted;">
                                     {/loop}
                                 </ol>
                             </div>
-
                         </div>
-                        <div class="col-md-6">
-                            <h1 class="total">Total: R${function="formatPrice($total)"}</h1>
-                            <form action="" method="post" class="total">
-                                <label for="clientValue"> Valor pago:</label>
-                                <input class="form-control" type="text" name="clientValue" id="clientValue">
-                            </form>
-                            <h2>Troco:</h2>
-                            <input type="hidden" name="change" value="" id="changeInput">
-                            <h1 id="change">R$</h1>
-                        </div>
-
+                        <form action="/order/confirm" method="post">
+                            <div class="col-md-6">
+                                <h1 class="total">Total: R${function="formatPrice($total)"}</h1>
+                                <form action="" method="post" class="total">
+                                    <label for="paymentMethod"> Método de Pagamento:</label>
+                                    <select class="form-control" id="paymentMethod" name="paymentMethod" required oninput="this.setCustomValidity('')">
+                                        <option value="" disabled selected>Selecione o método de pagamento</option>
+                                        <option value="Dinheiro">Dinheiro</option>
+                                        <option value="Crédito">Crédito</option>
+                                        <option value="Débito">Débito</option>
+                                    </select>
+                                    <label for="clientValue"> Valor pago:</label>
+                                    <input class="form-control" type="text" name="clientValue" id="clientValue" required>
+                                </form>
+                                <h2>Troco:</h2>
+                                <input type="hidden" name="changeValue" value="" id="changeValue">
+                                <h1 id="change">R$</h1>
+                                <button type="submit" class="btn btn-success btn-lg pull-right">Finalizar</button>
+                            </div>
+                        </form>
                     </div>
                     <!-- /.box-body -->
-
-
                 </div>
                 <!-- /.box -->
-
     </section>
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <!-- jQuery input mask -->
-<script src="/bower_components/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+<script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+
+<script src="/dist/js/paymentMethod.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -90,12 +99,15 @@
                     clientValue: dados.replace('.', '').replace(',', '.')
                 },
                 success: function (response) {
+                    $('input[name=changeValue]').val(response)
                     $('#change').append(response)
-                    $('#changeInput').val(reponse)
+                    console.log($('#changeValue').val())
                 }
             });
 
         })
 
     })
+
+
 </script>

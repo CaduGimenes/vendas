@@ -5,8 +5,10 @@ namespace Model;
 use Model\Sql;
 use Model\Model;
 
+//Classe responsável pelo gerenciamento das frutas
 class Fruit extends Model{
 
+    // Método responsável
     public static function listAll() {
 
         $sql = new Sql();

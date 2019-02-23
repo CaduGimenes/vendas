@@ -59,13 +59,13 @@ $app->get('/order/confirm', function () {
         'order' => 'active',
         'menu' => '',
         'client'=>'',
-        'district'=>'',
-        'total' => $order->getTotal(),
-        'orders' => $order->getOrders(),
+        'district'=>''
     ]);
 
     $page->setTpl('orderConfirm', [
         'user' => User::getSession(),
+        'total' => $order->getTotal(),
+        'orders' => $order->getOrders()
     ]);
 
 });
@@ -80,7 +80,7 @@ $app->post('/order/confirm', function () {
 
     $order->save();
 
-    $printOut->printOrder();
+    $printOut->printOrder($_POST['paymentMethod']);
 
 });
 

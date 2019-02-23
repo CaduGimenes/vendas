@@ -16,7 +16,6 @@
             <section class="content">
                 <div id="error"></div>
                 <!-- Default box -->
-                <form action="/order/update/address" method="POST">
                     <div class="box">
                         <div class="box-body">
                             <div class="row">
@@ -57,7 +56,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="nm_bloco">Bloco (Somento para apt)</label>
-                                            <input type="text" class="form-control" name="nm_bloco" value="{$user.nm_bloco}" id="nm_bloco" placeholder="Número da bloco"
+                                            <input type="text" class="form-control" name="nm_bloco" value="{$user.nm_bloco}" id="nm_bloco" placeholder="Número do bloco"
                                             readonly>
                                         </div>
                                     </div>
@@ -66,9 +65,8 @@
                             <!-- /.box-body -->
                             <div class="box-footer">
                                 <a href="/order/update/address" class="btn btn-warning pull-left">Alterar Endereço</a>
-                                <button type="submit" class="btn btn-success pull-right">Continuar</button>
+                                <a href="/order/make" class="btn btn-success pull-right">Continuar</a>
                             </div>
-                </form>
                 <!-- /.box-footer-->
         </div>
         <!-- /.box -->
