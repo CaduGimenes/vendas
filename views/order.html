@@ -149,7 +149,7 @@
 
       if (i < 0) i = 0
 
-      if (i === 0) i = 1
+      if (i == 0) i = 1
 
       $('#nav-tabs').append('<li id="order_' + i + '"><a href="#tab_' + i + '" class="tab_'+i+'" data-toggle="tab">Pedido ' + (i + 1) + '</a></li>')
       $('#tab-content').append('<div class="tab-pane" id="tab_' + i +
@@ -172,6 +172,8 @@
 
     //Fechar abas de pedido
     $('#close').click(function () {
+
+      if (i == 0) i = 1
 
       $('#tab_' + i).remove()
       $('#order_' + i).remove()

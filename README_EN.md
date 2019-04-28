@@ -1,5 +1,5 @@
 # Vendas!
-![Logo](https://lh3.googleusercontent.com/bu9l-cugaiSCiTuZsFGYIq-pIUmvBIUZtXDW9oTRZgYDtq5Y6WFgLpQ6VqyF7F7uXwMyHzkEi_R1)
+![Logo](https://i.ibb.co/svXyTZZ/cbcc5b32938043.png)
 
 ![GitHub issues](https://img.shields.io/github/issues/CaduGimenes/vendas.svg) ![GitHub forks](https://img.shields.io/github/forks/CaduGimenes/vendas.svg) ![GitHub stars](https://img.shields.io/github/stars/CaduGimenes/vendas.svg) ![GitHub license](https://img.shields.io/github/license/CaduGimenes/vendas.svg)
 
