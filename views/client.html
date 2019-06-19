@@ -32,6 +32,7 @@
                   <th>Bairro</th>
                   <th>Rua</th>
                   <th>Bloco</th>
+				  <th style="width: 240px">&nbsp;</th>
                 </tr>
               </thead>
               <tbody>
@@ -43,6 +44,14 @@
                   <td>{$value.nm_bairro}</td>
                   <td>{$value.nm_logradouro}, {$value.nr_casa}</td>
                   <td>{$value.nm_bloco}</td>
+                  <td>
+
+                    <a href="/clients/update/{$value.cd_cliente}" class="btn btn-primary btn-xs"><i
+                        class="fa fa-edit"></i>
+                      Editar</a>
+                    <a href="/clients/delete/{$value.cd_cliente}" onclick="return confirm('Deseja realmente excluir este cliente?')"
+                      class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                  </td>
                 </tr>
                 {/loop}
               </tbody>
