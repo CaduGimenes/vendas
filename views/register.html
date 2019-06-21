@@ -56,7 +56,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="nr_casa">Número (Casa/APT)*</label>
-                                    <input type="text" class="form-control" name="nr_casa" id="nr_casa" placeholder="Número da casa ou apartamento"
+                                    <input type="text" onkeypress="return onlynumber();" class="form-control" name="nr_casa" id="nr_casa" placeholder="Número da casa ou apartamento"
                                         required>
                                 </div>
                             </div>
@@ -85,3 +85,16 @@
 <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 <!-- Mask Js-->
 <script src="/dist/js/masks.js"></script>
+
+<script>
+function onlynumber(evt) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode( key );
+    //var regex = /^[0-9.,]+$/;
+    var regex = /^[0-9.]+$/;
+    if( !regex.test(key) ) {
+       theEvent.returnValue = false;
+       if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+ }</script>
