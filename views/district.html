@@ -16,54 +16,58 @@
   <!-- Main content -->
   <section class="content">
     <!-- Default box -->
-    <div class="box">
-      <div class="box-header">
-        <h3 class="box-title">Tabela de Bairros</h3><br><br>
-        <a href="/district/create" class="btn btn-success">Cadastrar Bairro</a>
-      </div>
-      <div class="box-body">
-        <div class="row">
-          <div class="col-md-12">
-            <table id="clientTable" class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Bairro</th>
-                  <th>Frete</th>
-                  <th style="width: 240px">&nbsp;</th>
-                </tr>
-              </thead>
-              <tbody>
-                {loop="$districtList"}
-                <tr>
-                  <td>{$value.cd_bairro}</td>
-                  <td>{$value.nm_bairro}</td>
-                  <td>R${function="formatPrice($value.vl_frete)"}</td>
-                  <td>
-
-                    <a href="/district/update/{$value.cd_bairro}" class="btn btn-primary btn-xs"><i
-                        class="fa fa-edit"></i>
-                      Editar</a>
-                    <a href="/district/delete/{$value.cd_bairro}" onclick="return confirm('Deseja realmente excluir este registro?')"
-                      class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
-                  </td>
-                </tr>
-                {/loop}
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th>#</th>
-                  <th>Bairro</th>
-                  <th>Frete</th>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-          <!-- /.box-body -->
-
-
+      <div class="box">
+        <div class="box-header text-center">
+          <h1 class="display-4">Tabela de Bairros</h3>
+          <br><br>
         </div>
-        <!-- /.box -->
+
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-12">
+              <table id="clientTable" class="table table-bordered table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Bairro</th>
+                    <th>Frete</th>
+                    <th style="width: 240px">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {loop="$districtList"}
+                  <tr>
+                    <td>{$value.cd_bairro}</td>
+                    <td>{$value.nm_bairro}</td>
+                    <td>R${function="formatPrice($value.vl_frete)"}</td>
+                    <td>
+
+                      <a href="/district/update/{$value.cd_bairro}" class="btn btn-primary btn-xs"><i
+                          class="fa fa-edit"></i>
+                        Editar</a>
+                      <a href="/district/delete/{$value.cd_bairro}"
+                        onclick="return confirm('Deseja realmente excluir este registro?')"
+                        class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                    </td>
+                  </tr>
+                  {/loop}
+                </tbody>
+                <!--<tfoot>
+                  <tr>
+                    <th>#</th>
+                    <th>Bairro</th>
+                    <th>Frete</th>
+                  </tr>
+                </tfoot>-->
+              </table>
+              <div class="col text-center">
+              <a href="/district/create" class="btn btn-primary">Cadastrar um novo Bairro</a>
+              </div>
+            </div>
+            <!-- /.box-body -->
+
+          </div>
+          <!-- /.box -->
 
   </section>
   <!-- /.content -->
