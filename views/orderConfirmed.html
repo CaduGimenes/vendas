@@ -1,0 +1,99 @@
+<!-- =============================================== -->
+<style>
+
+    .spacing{
+
+    float: right;
+
+}
+
+</style>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            <b>Pedido</b> confirmado
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/"><i class="fa fa-bookmark"></i> Home</a></li>
+            <li><a href="#"> Pedidos</a></li>
+            <li><a href="#"> Pedido efetuado</a></li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div class="callout callout-success">
+                                <h4>Pedido</h4>
+                                <ol>
+                                    <li>Entrega<b class="spacing">R${function="formatPrice($user.vl_frete)"}</b></li>
+                                    <hr style="border-top:dotted;">
+                                    {loop="$orders"}
+                                    <li>{$value.tamanho}<b class="spacing">R${function="formatPrice($value.valor)"}</b></li>
+                                    <hr style="border-top:dotted;">
+                                    {/loop}
+                                </ol>
+                            </div>
+                        </div>
+                            <div class="col-md-6">
+                                <h1 class="total">Total: R${function="formatPrice($total)"}</h1>
+                                <h1 for="paymentMethod">Método de Pagamento: {$paymentMethod}</label>
+                                <h1>Troco: {$changeValue}</h1>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<!-- jQuery input mask -->
+<script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+
+<script src="/dist/js/paymentMethod.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#clientValue').mask("#.###,00", {
+            reverse: true
+        })
+
+        $('#clientValue').focus()
+
+        $('#clientValue').keyup(function () {
+
+            let dados = $('#clientValue').val();
+
+            $('#change').empty()
+
+            $.ajax({
+                type: 'POST',
+                url: '../dist/functions/getChange.php',
+                async: true,
+                data: {
+                    clientValue: dados.replace('.', '').replace(',', '.')
+                },
+                success: function (response) {
+                    $('input[name=changeValue]').val(response)
+                    $('#change').append(response)
+                    console.log($('#changeValue').val())
+                }
+            });
+
+        })
+
+    })
+
+
+</script>

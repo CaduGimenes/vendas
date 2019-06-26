@@ -1,12 +1,10 @@
 <!-- =============================================== -->
 <style>
+    .spacing {
 
-    .spacing{
+        float: right;
 
-    float: right;
-
-}
-
+    }
 </style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -29,43 +27,49 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-md-offset-3">
                             <div class="callout callout-success">
-                                <h4>Pedidos</h4>
-                                <ol>
-                                    <li>Entrega<b class="spacing">R${function="formatPrice($user.vl_frete)"}</b></li>
-                                    <hr style="border-top:dotted;">
-                                    {loop="$orders"}
-                                    <li>{$value.tamanho}<b class="spacing">R${function="formatPrice($value.valor)"}</b></li>
-                                    <hr style="border-top:dotted;">
-                                    {/loop}
-                                </ol>
+                                <h4 class="text-center">Pedido</h4>
+                                Entrega<b class="spacing">R${function="formatPrice($user.vl_frete)"}</b>
+                                <br>
+                                <hr style="border-top:dotted;">
+                                {loop="$orders"}
+                                {$value.tamanho}<b class="spacing">R${function="formatPrice($value.valor)"}</b>
+                                {/loop}
+                                <br>
+                                <hr style="border-top:solid;">
+                                <b class="spacing">Total: R${function="formatPrice($total)"}</b>
+                                <br>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="col-md-12">
                         <form action="/order/confirm" method="post">
-                            <div class="col-md-6">
-                                <h1 class="total">Total: R${function="formatPrice($total)"}</h1>
+                            <div class="col-md-12">
                                 <form action="" method="post" class="total">
                                     <label for="paymentMethod"> Método de Pagamento:</label>
-                                    <select class="form-control" id="paymentMethod" name="paymentMethod" required oninput="this.setCustomValidity('')">
+                                    <select onchange="onChange();" class="form-control" id="paymentMethod"
+                                        name="paymentMethod" required oninput="this.setCustomValidity('')">
                                         <option value="" disabled selected>Selecione o método de pagamento</option>
                                         <option value="Dinheiro">Dinheiro</option>
                                         <option value="Crédito">Crédito</option>
                                         <option value="Débito">Débito</option>
                                     </select>
                                     <label for="clientValue"> Valor pago:</label>
-                                    <input class="form-control" type="text" name="clientValue" id="clientValue" required>
+                                    <input class="form-control" type="text" name="clientValue" id="clientValue"
+                                        required>
                                 </form>
-                                <h2>Troco:</h2>
+                                <br>
+                                <h2 id="troco">Troco:</h2>
                                 <input type="hidden" name="changeValue" value="" id="changeValue">
                                 <h1 id="change">R$</h1>
-                                <button type="submit" class="btn btn-success btn-lg pull-right">Finalizar</button>
+                                <button type="submit" class="btn btn-success btn-lg center-block">Finalizar</button>
                             </div>
                         </form>
+                        <!-- /.box-body -->
                     </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
+                    <!-- /.box -->
     </section>
     <!-- /.content -->
 </div>
@@ -78,6 +82,10 @@
 
 <script>
     $(document).ready(function () {
+
+        let $j = jQuery.noConflict();
+        $j("#troco").hide();
+        $j("#change").hide();
 
         $('#clientValue').mask("#.###,00", {
             reverse: true
@@ -99,15 +107,31 @@
                     clientValue: dados.replace('.', '').replace(',', '.')
                 },
                 success: function (response) {
-                    $('input[name=changeValue]').val(response)
-                    $('#change').append(response)
-                    console.log($('#changeValue').val())
+
+                    if (response.replace("R$", "") > 0) {
+                        $('input[name=changeValue]').val(response)
+                        $('#change').append(response)
+                    } else {
+                        $('input[name=changeValue]').val("R$0.00");
+                        $('#change').append("R$0.00")
+                    }
                 }
             });
 
         })
 
     })
+
+    function onChange() {
+        let $j = jQuery.noConflict();
+        if ($('#paymentMethod').val() == "Dinheiro") {
+            $j("#troco").show();
+            $j("#change").show();
+        } else {
+            $j("#troco").hide();
+            $j("#change").hide();
+        }
+    }
 
 
 </script>

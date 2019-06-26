@@ -25,6 +25,11 @@
                         <div class="col-md-12">
                             <div class="col-md-4">
                                 <div class="form-group">
+                                    <label for="CEP">CEP</label>
+                                    <input type="text" class="form-control" name="cep" id="cep"
+                                        placeholder="12345-67" maxlength="8" required>
+                                </div>
+                                <div class="form-group">
                                     <label for="newDistrict">Bairro</label>
                                     <input type="text" class="form-control" name="nm_bairro" id="newDistrict"
                                         placeholder="Nome do Bairro" required>
@@ -53,3 +58,20 @@
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <!-- /.content-wrapper -->
 <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+
+<script type="text/javascript">
+	$("#cep").focusout(function(){
+		$.ajax({
+			url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+			dataType: 'json',
+			success: function(resposta){
+				$("#newDistrict").val(resposta.bairro);
+                $("#newSizeValue").focus();
+			}
+		});
+    });
+    
+    $(document).ready(function(){
+        $('#cep').mask("00000-000")
+    })
+</script>

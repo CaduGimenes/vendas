@@ -37,6 +37,13 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
+                                    <label for="CEP">CEP</label>
+                                    <input type="text" class="form-control" name="cep" id="cep" placeholder="12345-67"
+                                        maxlength="8" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
                                     <label for="nm_logradouro">Rua*</label>
                                     <input type="text" class="form-control" name="nm_logradouro" id="nm_logradouro"
                                         placeholder="Rua" required>
@@ -45,7 +52,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="nm_bairro">Bairro*</label>
-                                    <select name="nm_bairro" id="nm_bairro" class="form-control" required oninput="this.setCustomValidity('')">
+                                    <select name="nm_bairro" id="nm_bairro" class="form-control" required
+                                        oninput="this.setCustomValidity('')">
                                         <option value="" disabled selected>Selecione um bairro</option>
                                         {loop="$districtValues"}
                                         <option value="{$value.cd_bairro}">{$value.nm_bairro}</option>
@@ -56,14 +64,15 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="nr_casa">Número (Casa/APT)*</label>
-                                    <input type="text" class="form-control" name="nr_casa" id="nr_casa" placeholder="Número da casa ou apartamento"
-                                        required>
+                                    <input type="text" class="form-control" name="nr_casa" id="nr_casa"
+                                        placeholder="Número da casa ou apartamento" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="nm_bloco">Bloco (Somento para apt)</label>
-                                    <input type="text" class="form-control" name="nm_bloco" id="nm_bloco" placeholder="Número da bloco">
+                                    <input type="text" class="form-control" name="nm_bloco" id="nm_bloco"
+                                        placeholder="Número da bloco">
                                 </div>
                             </div>
                         </div>
@@ -85,3 +94,21 @@
 <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 <!-- Mask Js-->
 <script src="/dist/js/masks.js"></script>
+
+<script type="text/javascript">
+    $("#cep").focusout(function () {
+        $.ajax({
+            url: 'https://viacep.com.br/ws/' + $(this).val() + '/json/unicode/',
+            dataType: 'json',
+            success: function (resposta) {
+                $("#nm_logradouro").val(resposta.logradouro);
+                $("#nm_bairro option:contains(" + resposta.bairro + ")").attr('selected', 'selected');
+                $("#nr_casa").focus();
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $('#cep').mask("00000-000")
+    })
+</script>

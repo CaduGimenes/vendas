@@ -18,8 +18,8 @@ require_once("controller".DIRECTORY_SEPARATOR."UserController.php");
 require_once("controller".DIRECTORY_SEPARATOR."ClientController.php");
 require_once("controller".DIRECTORY_SEPARATOR."DistrictController.php");
 
+header("Content-type: text/html; charset=utf-8");
+
 $app->run();
-
-
 
 ?>
