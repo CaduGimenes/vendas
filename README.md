@@ -98,7 +98,7 @@ localhost/phpmyadmin
 
 ## 🤝 Contribuições
 
-Contribuições, issues e novas features seram bem vindas!<br />Sinta-se à vontade para perguntar [issues page](https://github.com/CaduGimenes/vendas/issues).
+Contribuições, são bem vindas!<br />Sinta-se à vontade para perguntar [issues page](https://github.com/CaduGimenes/vendas/issues).
 
 ## Mostre seu apoio
 
