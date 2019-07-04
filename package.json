@@ -1,7 +1,7 @@
 {
   "name": "vendas",
   "version": "1.0.0",
-  "description": "![Logo](https://lh3.googleusercontent.com/bu9l-cugaiSCiTuZsFGYIq-pIUmvBIUZtXDW9oTRZgYDtq5Y6WFgLpQ6VqyF7F7uXwMyHzkEi_R1)",
+  "description": "![Logo](https://i.ibb.co/svXyTZZ/cbcc5b32938043.png)",
   "main": "dist/js/adminlte.min.js",
   "dependencies": {
     "bootstrap": "^3.3.7",

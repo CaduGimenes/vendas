@@ -1,67 +1,113 @@
+<h1  align="center">Bem vindo ao Vendas!</h1>
+<p  align="center">
 
-# Vendas!
+<img  src="https://i.ibb.co/svXyTZZ/cbcc5b32938043.png" />
 
-![Logo](https://i.ibb.co/svXyTZZ/cbcc5b32938043.png)
+</p>
+<p display="inline-block">
 
-![GitHub issues](https://img.shields.io/github/issues/CaduGimenes/vendas.svg) ![GitHub forks](https://img.shields.io/github/forks/CaduGimenes/vendas.svg) ![GitHub stars](https://img.shields.io/github/stars/CaduGimenes/vendas.svg) ![GitHub license](https://img.shields.io/github/license/CaduGimenes/vendas.svg)
+<img  src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
 
-[English](https://github.com/CaduGimenes/vendas/blob/master/README_EN.md) / Portuguese
+<a  href="https://github.com/CaduGimenes/vendas/blob/master/LICENSE">
 
-**Vendas** é um sistema **Open Source** de vendas de açaí. O objetivo do projeto é disponibilizar de maneira, *simples, fácil e rápida,* uma solução aos pequenos empreendedores do ramo do açaí (*tradicional fruta brasileira*), que facilite a maneira de gerenciar seus pedidos feitos por delivery.
+<img  alt="License: MIT"  src="https://img.shields.io/badge/License-MIT-yellow.svg"  target="_blank" />
 
-### O sistema:
+</a>
 
-### Iniciar o Pedido.
+<img  src="https://img.shields.io/github/issues/CaduGimenes/vendas.svg" />
+
+<img  src="https://img.shields.io/github/forks/CaduGimenes/vendas.svg" />
+
+<img  src="https://img.shields.io/github/stars/CaduGimenes/vendas.svg" />
+
+<img src="https://api.codacy.com/project/badge/Grade/20fb28dfbc77445599140ad2d8adcd4d" />
+ 
+</p>
+
+> **Vendas** é um sistema **Open Source** de vendas de açaí. O objetivo do projeto é disponibilizar de maneira, *simples, fácil e rápida,* uma solução aos pequenos empreendedores do ramo do açaí (*tradicional fruta brasileira*), que facilite a maneira de gerenciar seus pedidos feitos por delivery.
+
+## O sistema
+
+### Iniciar o Pedido
+
 ![](https://i.ibb.co/vByym17/screencapture-localhost-2019-02-23-17-32-05.png)
 
-### Realização do Pedido.
-![](https://i.ibb.co/6FdSbvZ/screencapture-localhost-order-make-2019-02-23-17-50-34.png)
 
-### Confirmação do Pedido.
+### Realização do Pedido
+
+![](https://i.ibb.co/6FdSbvZ/screencapture-localhost-order-make-2019-02-23-17-50-34.png)  
+
+### Confirmação do pedido
+
 ![](https://i.ibb.co/5xQS3qj/screencapture-localhost-order-confirm-2019-02-23-17-51-51.png)
 
-# Uso básico
+## Pré-requisitos
 
-### Faça download das bibliotecas
+* npm >= 5.5.0
 
-### NPM
+* php >= 7.2.*
 
-Use o seguinte comando fazer o download de todas as dependências:
+* composer >= 1.8.5
 
-```bash
+* mysql >= 7
 
-$ npm install
+## Instalação
 
-```
+Faça download das bibliotecas
 
-### Composer  
+```sh
 
-Use o seguinte comando para fazer o download de todos os módulos PHP:
-
-```bash
-
-$ composer install
+npm install
 
 ```
 
-## Requisitos
+Execute o composer
 
-Para o funcionamento correto do sistema é necessário possuir os seguintes itens:
+```sh
 
-- PHP 7.2.* ou superior;
+composer install
 
-- [Composer](https://getcomposer.org);
+```
 
-- [NPM](https://www.npmjs.com/);
+## Uso
 
-- [MySQL](https://www.mysql.com/).
+O projeto está localizado em
+  
 
-## Licença
+```sh
 
-- [MIT](https://github.com/CaduGimenes/vendas/blob/master/LICENSE);
+localhost
 
-- Template usado no projeto [AdminLTE](http://adminlte.io) por [Almsaeed Studio](http://adminlte.io).
+```
 
-# Autor
+### Importando o banco de dados
 
-**Carlos Gimenes** - 2018.
+Para importar o banco de dados, acesse o phpmyadmin
+
+```sh
+
+localhost/phpmyadmin
+
+```
+
+## Autor
+
+👤 **Carlos Gimenes**
+
+* Github: [@CaduGimenes](https://github.com/CaduGimenes)
+
+## 🤝 Contribuições
+
+Contribuições, issues e novas features seram bem vindas!<br />Sinta-se à vontade para perguntar [issues page](https://github.com/CaduGimenes/vendas/issues).
+
+## Mostre seu apoio
+
+Dê uma ⭐️ se este projeto te ajudou!
+
+## 📝 Licença
+
+Copyright © 2019 [Carlos Gimenes](https://github.com/CaduGimenes).<br />
+
+Este projeto está sob lincença [MIT](https://github.com/CaduGimenes/vendas/blob/master/LICENSE).
+
+Template usado no projeto [AdminLTE](http://adminlte.io) por [Almsaeed Studio](http://adminlte.io).

@@ -45,11 +45,11 @@ $app->post('/district/create', function(){
 
 });
 
-$app->get('/district/update/:cd_frete', function($cd_frete){
+$app->get('/district/update/:cd_bairro', function($cd_bairro){
 
     $district = new District();
 
-    $district->get((int)$cd_frete);
+    $district->get((int)$cd_bairro);
 
     $page = new Page([
         'title'=>'Alterar Bairro',
@@ -65,11 +65,11 @@ $app->get('/district/update/:cd_frete', function($cd_frete){
 
 });
 
-$app->post('/district/update/:cd_frete', function($cd_frete){
+$app->post('/district/update/:cd_bairro', function($cd_bairro){
 
     $district = new District();
 
-    $district->get((int)$cd_frete);
+    $district->get((int)$cd_bairro);
 
     $district->setData($_POST);
 
@@ -80,11 +80,11 @@ $app->post('/district/update/:cd_frete', function($cd_frete){
 
 });
 
-$app->get("/district/delete/:cd_frete", function($cd_frete){
+$app->get("/district/delete/:cd_bairro", function($cd_bairro){
 
     $district = new District();
 
-    $district->get((int)$cd_frete);
+    $district->get((int)$cd_bairro);
 
     $district->delete();
 

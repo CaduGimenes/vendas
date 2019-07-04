@@ -5,8 +5,8 @@ namespace Model;
 class Sql {
 
 	const HOSTNAME = "db";
-	const USERNAME = "root"; //YOUR USER
-	const PASSWORD = "root"; //YOUR PASSWORD
+	const USERNAME = "root"; 
+	const PASSWORD = "root";
 	const DBNAME = "db_vendas";
 
 	private $conn;

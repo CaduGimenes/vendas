@@ -14,23 +14,19 @@ use Model\User;
 class PrintOut
 {
 
-    // Método para checar o sistema operacional.
     public function checkSys()
     {
-        // Verificando qual o sistema operacional do servidor.
+
         switch (PHP_OS) {
-            // Baseados em Windows.
             case 'WINNT':
                 return 'WIN';
                 break;
 
-            // Baseados em Unix.
             case 'Linux':
             case 'Darwin':
                 return 'UNIX';
                 break;
 
-            // Caso o sistema seja diferente dos listados acima, devolvemos um erro.
             default:
                 throw new Exception("Sistema Operacional incompativel com a impressão!");
                 break;
@@ -38,63 +34,47 @@ class PrintOut
 
     }
 
-    // Método para imprimir as comandas.
     public function printOrder($paymentMethod)
     {
 
-        // Obtendo o sistema operacional do servidor.
         $sys = $this->checkSys();
 
-        // Definindo o tipo de conexão de acordo com o sistema operacional do servidor.
         if ($sys == "WIN") {
-            $connector = new WindowsPrintConnector("COM1"); // Conectando com a porta serial em sistemas WIN.
+            $connector = new WindowsPrintConnector("COM1"); 
         } else {
-            $connector = new FilePrintConnector("/dev/ttyS0"); // Conectando com a porta serial em sistemas baseado em UNIX.
+            $connector = new FilePrintConnector("/dev/ttyS0"); 
         }
 
         try {
 
-            // Obtendo a data e as horas.
             $date = new DateTime();
 
-            // Instanciando a classe de pedidos.
             $order = new Order;
 
-            // Obtendo dados do pedido via sessão.
             $orderSession = $order->getSession();
 
-            // Contando quantos pedidos existem.
             $ordersCount = count($orderSession['pedido']);
 
-            // Obtendo o total
             $total = $order->getTotal();
 
-            // Obtendo o troco
             $change = $_SESSION['change'];
 
-            // Instanciando a classe de banco de dados.
             $sql = new Sql();
 
-            // Retornando os ultimos pedidos inseridos de acordo com o número de pedidos - $ordersCount.
             $results = $sql->select("SELECT cd_pedido FROM tb_pedido ORDER BY cd_pedido DESC LIMIT :countId", [
                 ':countId' => $ordersCount,
             ]);
 
-            // Instanciando a classe de usuário.
             $user = new User();
 
-            // Obtendo os dados do usuario via sessão.
             $user->getSession();
 
-            // Conectando a impressora.
             $printer = new Printer($connector);
 
-            // Inicializando impressora.
             $printer->initialize();
 
             for ($i = 0; $i < $ordersCount; $i++) {
 
-                // Comandas para o preparo.
                 $printer->text("Vendas!");
                 $printer->text("Data - " . $date->format("d/m/Y H:i:s") . " Pedido Nº " . $results[0][$i] . "
                 Cliente: " . $user['nm_cliente'] . " Contato: " . $user['nr_celular'] . "
@@ -107,7 +87,6 @@ class PrintOut
                 $printer->cut(Printer::CUT_PARTIAL);
                 $printer->feed();
 
-                // Comandas para entrega.
                 $printer->text("Vendas!");
                 $printer->text("Data - " . $date->format("d/m/Y H:i:s") . " Pedido Nº " . $results[0][$i] . "
                 Cliente: " . $user['nm_cliente'] . " Contato: " . $user['nr_celular'] . "
@@ -123,7 +102,6 @@ class PrintOut
             }
 
         } catch (Exception $e) {
-            // Retorna uma exception caso a impressão de comandas falhe
             echo $e->getMessage('A conexão falhou, verifique a porta serial, ou contate o administrador.');
         }
 
