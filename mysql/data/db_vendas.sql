@@ -178,22 +178,6 @@ CREATE TABLE `tb_cliente` (
   `nr_celular` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Fazendo dump de dados para tabela `tb_cliente`
---
-
-INSERT INTO `tb_cliente` (`cd_cliente`, `nm_cliente`, `nr_celular`) VALUES
-(1, 'Kessie', '(37) 1.5652-2557'),
-(2, 'Hyacinth', '(14) 5.6976-4655'),
-(3, 'Jarrod', '(48) 8.4141-9674'),
-(4, 'Geoffrey', '(71) 8.3168-8346'),
-(5, 'Heidi', '(14) 8.3453-9364'),
-(6, 'Orson', '(87) 8.1473-6968'),
-(7, 'Elizabeth', '(67) 1.8727-4736'),
-(8, 'Raven', '(45) 4.2889-8551'),
-(9, 'Cameron', '(51) 6.1522-5542'),
-(10, 'Walker', '(86) 4.4554-8915');
-
 -- --------------------------------------------------------
 
 --
@@ -220,22 +204,6 @@ CREATE TABLE `tb_endereco` (
   `cd_bairro` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Fazendo dump de dados para tabela `tb_endereco`
---
-
-INSERT INTO `tb_endereco` (`cd_endereco`, `nm_logradouro`, `nr_casa`, `nm_bloco`, `cd_cliente`, `cd_bairro`) VALUES
-(1, '4926 Orci Ave', '74892-766', '5', 10, 9),
-(2, 'P.O. Box 694, 4110 Malesuada St.', '45018-982', '4', 5, 10),
-(3, 'P.O. Box 681, 4795 Vel, St.', '94235-442', '9', 7, 7),
-(4, '499 Metus Ave', '47445-141', '5', 4, 7),
-(5, 'P.O. Box 293, 6865 Sapien, Rd.', '25705-084', '7', 2, 8),
-(6, 'Ap #393-924 Blandit. Rd.', '31910-834', '5', 8, 10),
-(7, 'Ap #230-3302 Ullamcorper, Rd.', '77979-705', '4', 9, 10),
-(8, 'P.O. Box 502, 1044 Lacus Rd.', '98291-118', '5', 3, 6),
-(9, '8102 Neque. Rd.', '49509-602', '9', 5, 10),
-(10, 'P.O. Box 601, 7935 Eu Road', '29333-617', '10', 4, 7);
-
 -- --------------------------------------------------------
 
 --
@@ -247,17 +215,6 @@ CREATE TABLE `tb_frete` (
   `nm_bairro` varchar(50) NOT NULL,
   `vl_frete` decimal(9,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Fazendo dump de dados para tabela `tb_frete`
---
-
-INSERT INTO `tb_frete` (`cd_bairro`, `nm_bairro`, `vl_frete`) VALUES
-(6, 'Anhanguera', '2.00'),
-(7, 'SÃ£o Manoel', '3.00'),
-(8, 'Tupy', '5.00'),
-(9, 'Gonzaga', '23.00'),
-(10, 'Ponta da praia', '22.00');
 
 -- --------------------------------------------------------
 
